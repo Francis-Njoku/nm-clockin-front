@@ -11,16 +11,62 @@ import Avatar8 from "../../assets/images/xs/avatar8.jpg";
 import ProfileImg from "../../assets/images/profile_av.png";
 import { Link } from "react-router-dom";
 import AddNewUserModal from "./AddNewUserModal";
+//import ReactDOM from "react-dom";
+import TimezoneSelect from "react-timezone-select";
+//import { useTimezoneSelect, allTimezones } from "react-timezone-select";
+import CityTime from "./CityTime";
 
 function Header() {
+    const cities = [
+        { name: "New York", timezone: "America/New_York" },
+        { name: "London", timezone: "Europe/London" },
+        { name: "Frankfurt", timezone: "Europe/Berlin" },
+        { name: "Tokyo", timezone: "Asia/Tokyo" },
+      ];
     const [isAddUserModa, setIsAddUserModa] = useState(false);
 
+    const [selectedTimezone, setSelectedTimezone] = useState({});
     return (
         <div className="header">
             <nav className="navbar py-4">
                 <div className="container-xxl">
                     <div className="h-right d-flex align-items-center order-1">
                         <div className="d-flex">
+                            <p>Chima</p>
+                            <div className="select-wrapper">
+                                <TimezoneSelect
+                                value={selectedTimezone}
+                                onChange={setSelectedTimezone}
+                                />
+                            </div>
+                            <h3>Output:</h3>
+                            <div
+                                style={{
+                                backgroundColor: '#ccc',
+                                padding: '20px',
+                                margin: '20px auto',
+                                borderRadius: '5px',
+                                maxWidth: '600px',
+                                }}
+                            >
+                                <pre
+                                style={{
+                                    margin: '0 20px',
+                                    fontWeight: 500,
+                                    fontFamily: 'monospace',
+                                }}
+                                >
+                                {JSON.stringify(selectedTimezone, null, 2)}
+                                </pre>
+                            </div>
+
+
+
+                            <ul className="cities">
+        {cities.map((city, index) => (
+          <CityTime city={city} key={index} />
+        ))}
+      </ul>
                             <Link to="help" className="nav-link text-primary collapsed info-page-icon" title="Get Help">
                                 <i className="icofont-info-square fs-5"></i>
                             </Link>
