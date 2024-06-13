@@ -11,7 +11,7 @@ import "./assets/scss/main.scss"
 
 let persistor = persistStore(store);
 
-const root = ReactDOM
+//const root = ReactDOM
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>

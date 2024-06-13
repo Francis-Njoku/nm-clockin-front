@@ -53,15 +53,15 @@ export const loginUser = (data) => (dispatch) => {
             res.group_id === 1
         ){
             dispatch(getAppSuccess(res));
-            window.localStorage.setItem(AUTH_TOKEN, res?.tokens?.access);
-            window.localStorage.setItem("REFRESH_TOKEN", res?.tokens?.refresh);
+            window.localStorage.setItem(AUTH_TOKEN, res?.token);
+            window.localStorage.setItem("REFRESH_TOKEN", res?.refresh_token);
             const redirectUrl = window.sessionStorage.getItem(REDIRECT_URL) ?? "/tickets-view";
             history.push(redirectUrl);
             window.location.reload();
         } else{
             dispatch(getAppSuccess(res));
-            window.localStorage.setItem(AUTH_TOKEN, res?.tokens?.access);
-            window.localStorage.setItem("REFRESH_TOKEN", res?.tokens?.refresh);
+            window.localStorage.setItem(AUTH_TOKEN, res?.token);
+            window.localStorage.setItem("REFRESH_TOKEN", res?.refresh_token);
             const redirectUrl = window.sessionStorage.getItem(REDIRECT_URL) ?? "/tickets-detail";
             history.push(redirectUrl);
             window.location.reload();

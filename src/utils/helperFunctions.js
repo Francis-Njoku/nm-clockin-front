@@ -50,3 +50,13 @@ export const formatMoney = (
     );
   } catch (e) {}
 };
+
+export const capitalizeFirstLetterOfEachWord = (str) =>
+{
+  if (str === undefined || str === null) {
+    return ''; // Return an empty string if str is undefined or null
+  }
+
+  return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  //return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}

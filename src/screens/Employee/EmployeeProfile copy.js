@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ClientProfileCard from "../../components/Clients/ClientProfileCard";
 import PageHeader from "../../components/common/PageHeader";
 import CurrentClientProject from "../../components/Clients/CurrentClientProject";
@@ -7,45 +7,19 @@ import PersonalInformations from "../../components/Employees/PersonalInformation
 import CurrentTask from "../../components/Employees/CurrentTask";
 import ExperienceCard from "../../components/Employees/ExperienceCard";
 import { Modal } from "react-bootstrap";
-import makeAPICall from "../../utils/apiUtils";
-import { message } from "antd";
-import { capitalizeFirstLetterOfEachWord } from "../../utils/helperFunctions";
 
-export default function EmployeeProfile() {
+function EmployeeProfile() {
 
     const [ismodal, setIsmodal] = useState(false);
     const [modalData, setModalData] = useState("");
-    const [profile, setProfile ] = useState(0);
-
-    function getUserProfile() {
-        //setLoading(true);
-        return makeAPICall({
-          path: "/auth/profile/",
-          method: "GET",
-          params: null,
-        })
-        .then((res) => {
-            setProfile(res);
-            console.log(res);
-          })
-          .catch((err) => {
-            //setLoading(false);
-            message.error(err.message, 5);
-          });
-      }
-    
-      useEffect(() => {
-        getUserProfile();
-      }, []);
 
     return (
         <div className="container-xxl">
             <PageHeader headerTitle="Employee Profile" />
             <div className="row g-3">
                 <div className="col-xl-8 col-lg-12 col-md-12">
-                    <ClientProfileCard designation={capitalizeFirstLetterOfEachWord(profile?.data?.department?.name)} details={`Employee Id : ${profile?.data?.name}`}  />
+                    <ClientProfileCard designation="Web Developer" details="Employee Id : 00001" />
                     <h6 className="fw-bold  py-3 mb-3">Current Work Project</h6>
-                   {/*
                     <div className="teachercourse-list mb-3">
                         <div className="row g-3 gy-5 pt-3 row-deck">
                             {
@@ -67,12 +41,12 @@ export default function EmployeeProfile() {
                                 </div>
                             })
                         }
-                    </div>*/}
+                    </div>
 
                 </div>
                 <div className="col-xl-4 col-lg-12 col-md-12">
-                    {/*<CurrentTask />
-                    <ExperienceCard /> */}
+                    <CurrentTask />
+                    <ExperienceCard />
                 </div>
 
             </div>
@@ -141,4 +115,4 @@ export default function EmployeeProfile() {
 }
 
 
-//export default EmployeeProfile;
+export default EmployeeProfile;

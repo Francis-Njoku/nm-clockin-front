@@ -1,9 +1,12 @@
 import { jwtDecode } from "jwt-decode";
 import { AUTH_TOKEN} from "./constants";
 import history from "../services/history";
+import "core-js/stable/atob";
 
 export const isLogin = () => {
+  //console.log("Chima");
   let token = window.localStorage.getItem(AUTH_TOKEN);
+  //console.log("Chima33");
   return !!token && !isSessionExpired(token);
 };
 
