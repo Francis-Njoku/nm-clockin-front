@@ -14,7 +14,7 @@ function LeftSide (){
                             </svg>
                     </div>
                     <div className="mb-5">
-                        <h2 className="color-900 text-center">My-Task Let's Management Better</h2>
+                        <h2 className="color-900 text-center">Nairametrics Staff Management</h2>
                     </div>
                     <div className="">
                         <img src={loginImg} alt="login-img" />

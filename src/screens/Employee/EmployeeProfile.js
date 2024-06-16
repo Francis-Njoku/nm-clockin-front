@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ClientProfileCard from "../../components/Clients/ClientProfileCard";
 import PageHeader from "../../components/common/PageHeader";
-import CurrentClientProject from "../../components/Clients/CurrentClientProject";
-import { clentProfileData, employeeInformationDetails } from "../../components/Data/AppData";
-import PersonalInformations from "../../components/Employees/PersonalInformations";
-import CurrentTask from "../../components/Employees/CurrentTask";
-import ExperienceCard from "../../components/Employees/ExperienceCard";
+//import CurrentClientProject from "../../components/Clients/CurrentClientProject";
+//import { clentProfileData, employeeInformationDetails } from "../../components/Data/AppData";
+//import PersonalInformations from "../../components/Employees/PersonalInformations";
+//import CurrentTask from "../../components/Employees/CurrentTask";
+//import ExperienceCard from "../../components/Employees/ExperienceCard";
 import { Modal } from "react-bootstrap";
 import makeAPICall from "../../utils/apiUtils";
 import { message } from "antd";

@@ -16,7 +16,7 @@ const makeAPICall = async (
     Accept: "application/json, */*",
     "Content-type": "application/json",
   };
-  console.log("deborah");
+  //console.log("deborah");
   console.log(baseURL);
   console.log('API Endpoint:', process.env.REACT_APP_API_ENDPOINT);
   if (token) headers.Authorization = `Bearer ${token}`;
@@ -26,7 +26,7 @@ const makeAPICall = async (
     headers,
     ...customConfigs,
   };
-  console.log("deborah2");
+  //console.log("deborah2");
 
   // return console.log(configs);
 
@@ -35,7 +35,7 @@ const makeAPICall = async (
   let url = new window.URL(`${baseURL}${path}`);
 
   console.log(url);
-  console.log("deborah3");
+  //console.log("deborah3");
 
   const buildParams = (data) => {
     const params = new window.URLSearchParams();

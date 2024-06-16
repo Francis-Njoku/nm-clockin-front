@@ -74,7 +74,7 @@ export default function SignIn (){
                         </div>
                         <div className="col-12 text-center mt-4">
                             <button className="btn btn-lg btn-block btn-light lift text-uppercase" type="button" onClick={handleSubmit} disabled={!(inputValues.password && inputValues.email)}>{loading ? "Loading..." : "SIGN IN"}</button>
-                        </div>
+                        </div> 
                         <div className="col-12 text-center mt-4">
                             <span className="text-muted">Don't have an account yet? <Link to={`${process.env.PUBLIC_URL}/sign-up`} className="text-secondary">Sign up here</Link></span>
                         </div>
