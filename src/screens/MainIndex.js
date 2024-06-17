@@ -78,7 +78,7 @@ function MainIndex(props) {
                 <Route exact path={`${process.env.PUBLIC_URL}/members`} element={<Members/>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/members-profile`} element={<PrivateRoute><EmployeeProfile/></PrivateRoute>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/holidays`} element={<Holidays/>} />
-                <Route exact path={`${process.env.PUBLIC_URL}/attendance-employees`} element={<AttendanceEmployees/>} />
+                <Route exact path={`${process.env.PUBLIC_URL}/attendance-employees`} element={<PrivateRoute><AttendanceEmployees/></PrivateRoute>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/attendance`} element={<Attendance/>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/leave-request`} element={<LeaveRequest/>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/department`} element={<Departments/>} />
