@@ -109,56 +109,6 @@ export default function AttendanceEmployees() {
             <PageHeader headerTitle="Attendance Employees" />
             <div className="row align-item-center row-deck g-3 mb-3">
                 <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-12">
-
-                <div className="container mt-5">
-      <h1>Pagination and Date Picker Example</h1>
-      <div className="mb-3">
-        <DatePicker
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          showTimeSelect
-          dateFormat="Pp"
-          className="form-control"
-        />
-      </div>
-      <div>
-        <ul className="list-group">
-          {currentItems.map((item) => (
-            <li key={item.id} className="list-group-item">
-              <p><strong>Name:</strong> {item.user_id[0].firstName} {item.user_id[0].lastName}</p>
-              <p><strong>Attendance:</strong> {item.attendance.name} ({item.attendance.status})</p>
-              <p><strong>Clock:</strong> {item.clock}</p>
-              <p><strong>IP Address:</strong> {item.ipAddress}</p>
-            </li>
-          ))}
-        </ul>
-        <ReactPaginate
-          previousLabel={"previous"}
-          nextLabel={"next"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          pageCount={pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          subContainerClassName={"pages pagination"}
-          activeClassName={"active"}
-          pageClassName={"page-item"}
-          pageLinkClassName={"page-link"}
-          previousClassName={"page-item"}
-          previousLinkClassName={"page-link"}
-          nextClassName={"page-item"}
-          nextLinkClassName={"page-link"}
-          breakLinkClassName={"page-link"}
-        />
-      </div>
-    </div>
-
-
-
-
-
                     <GeneralChartCard Title="Today Time Utilisation" extraDivBody={() =>
                         <div className="timesheet-info d-flex align-items-center justify-content-between flex-wrap">
                             <div className="intime d-flex align-items-center mt-2">

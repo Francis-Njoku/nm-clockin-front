@@ -5,6 +5,7 @@ import Header from "../components/common/Header";
 import Expenses from "./Accounts/Expenses";
 import Invoices from "./Accounts/Invoices";
 import Payments from "./Accounts/Payments";
+import UserDashboard from "./Dashboard/UserDashboard";
 import HrDashboard from "./Dashboard/HrDashboard";
 import ProjectDashboard from "./Dashboard/ProjectDashboard";
 import Attendance from "./Employee/Attendance";
@@ -77,6 +78,7 @@ function MainIndex(props) {
                 <Route exact path={`${process.env.PUBLIC_URL}/client-profile`} element={<ClientProfile/>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/members`} element={<Members/>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/members-profile`} element={<PrivateRoute><EmployeeProfile/></PrivateRoute>} />
+                <Route exact path={`${process.env.PUBLIC_URL}/attendance-summary`} element={<PrivateRoute><UserDashboard/></PrivateRoute>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/holidays`} element={<Holidays/>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/attendance-employees`} element={<PrivateRoute><AttendanceEmployees/></PrivateRoute>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/attendance`} element={<Attendance/>} />
