@@ -8,7 +8,7 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 //import { BrowserRouter } from 'react-router-dom';
 import "./assets/scss/main.scss"
-
+import 'chart.js/auto';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS
 import 'react-datepicker/dist/react-datepicker.css'; // React Datepicker CSS
 import 'react-big-calendar/lib/css/react-big-calendar.css'; // React Big Calendar CSS
