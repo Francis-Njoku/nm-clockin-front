@@ -150,7 +150,7 @@ export default function UserDashboard (){
                                     </div>
                                 </div>                                
                             </div>
-                            <div className="col-md-6">
+                            {/*<div className="col-md-6">
                                 <Employeesavaibility />
                             </div>
                             <div className="col-md-6">
@@ -158,10 +158,10 @@ export default function UserDashboard (){
                             </div>
                             <div className="col-md-12">
                                 <GeneralChartCard Title="Top Hiring Sources" data={TopHiringSourcesChartData} identity="TopHiringSources"/>
-                            </div>
+                            </div>*/}
                         </div>
                     </div>
-                    <div className="col-xl-4 col-lg-12 col-md-12">
+                    {/*<div className="col-xl-4 col-lg-12 col-md-12">
                         <div className="row g-3">
                             <div className="col-md-6 col-lg-6 col-xl-12"><HignlighterCard /></div>
                             <div className="col-md-6 col-lg-6 col-xl-12 flex-column">
@@ -173,7 +173,7 @@ export default function UserDashboard (){
                     </div>
                     <div className="col-md-12">
                         <TopPerformers />
-                    </div>
+                    </div>*/}
                 </div>
             </div>
         )

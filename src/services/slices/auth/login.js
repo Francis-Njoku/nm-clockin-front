@@ -43,7 +43,7 @@ export const loginUser = (data) => (dispatch) => {
     dispatch(getApp());
     console.log(data);
     return makeAPICall({
-        path: "/auth/login/",
+        path: "/auth/login",
         payload: data,
         method: "POST",
     })

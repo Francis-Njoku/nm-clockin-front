@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import makeAPICall from "../../../utils/apiUtils";
 import { message } from "antd"
+import history from "../../history";
+import { REDIRECT_URL } from "../../../utils/constants";
+
 
 const initialState = {
     loading: false,
@@ -39,13 +42,17 @@ export default registerSlice.reducer;
 export const RegisterUser = (data) => (dispatch) => {
     dispatch(getApp());
   return makeAPICall({
-    path: data?.referral_code ? "/auth/register/referral/" : "/auth/register/",
+    path: data?.referral_code ? "/auth/register/referral/" : "/auth/register",
     payload: data,
     method: "POST",
   })
     .then((res) => {
       // console.log(res, 'register successful');
       dispatch(getAppSuccess(res.data));
+      const redirectUrl = window.sessionStorage.getItem(REDIRECT_URL) ?? "/tickets-view";
+      history.push(redirectUrl);
+      window.location.reload();
+      message.success("User Created Successfully");
     })
     .catch((err) => {
       message.error(err.message, 5);

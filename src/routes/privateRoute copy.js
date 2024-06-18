@@ -5,6 +5,10 @@ import { isLogin } from "../utils/authUtils";
 //const history = useHistory();
 
 function PrivateRoute({ children }) {
+  return isLogin() ? children : <Navigate to="/sign-in" />;
+}
+
+function PrivateRoute({ children }) {
   const navigate = useNavigate();
 
   const handleRedirect = () => {

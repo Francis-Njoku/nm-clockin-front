@@ -5,6 +5,7 @@ export const AUTH_TOKEN = "__API_TOKEN__";
 export const getAuthToken = () => window.localStorage.getItem(AUTH_TOKEN);
 //require('dotenv').config();
 const baseURL = process.env.REACT_APP_API_ENDPOINT;
+console.log(baseURL);
 
 const makeAPICall = async (
   { path, method = "POST", payload = null, params = null },
