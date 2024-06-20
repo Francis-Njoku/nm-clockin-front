@@ -75,7 +75,8 @@
 .sidebar{
     @include transition(ease .1s);
     @include c_overflow(scroll); 
-    background: var(--primary-color);
+    //background: var(--primary-color);
+    background-color: #243b93;
     z-index: 99999;
     margin: 25px;
     height: calc(100vh - 50px);

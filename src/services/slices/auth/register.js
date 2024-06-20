@@ -40,18 +40,20 @@ export default registerSlice.reducer;
 
 // api call action
 export const RegisterUser = (data) => (dispatch) => {
+  //console.log("chima is young");
     dispatch(getApp());
   return makeAPICall({
     path: data?.referral_code ? "/auth/register/referral/" : "/auth/register",
     payload: data,
     method: "POST",
   })
-    .then((res) => {
-      // console.log(res, 'register successful');
+    .then(
+      (res) => {
+      //console.log(res, 'register successful');
       dispatch(getAppSuccess(res.data));
       const redirectUrl = window.sessionStorage.getItem(REDIRECT_URL) ?? "/tickets-view";
-      history.push(redirectUrl);
-      window.location.reload();
+      //history.push(redirectUrl);
+      //window.location.reload();
       message.success("User Created Successfully");
     })
     .catch((err) => {

@@ -5,14 +5,14 @@
             "routerLink": [""],
             "identifier": "dashboard",
             "iconClass": "icofont-home fs-5",
-            "breadcrumbMessage": "Welcome to Employee Dashboard.",
+            "breadcrumbMessage": "Welcome to Analytics Dashboard.",
             "isCategory": false,
             "isApp": false,
             "children": [
                 {
-                    "name": "User Dashboard",
-                    "routerLink": [""],
-                    "identifier": "Dashboard",
+                    "name": "Hr Dashboard",
+                    "routerLink": ["hr-dashboard"],
+                    "identifier": "Hr Dashboard",
                     "iconClass": "",
                     "breadcrumbMessage": "",
                     "isCategory": false,
@@ -20,9 +20,9 @@
                     "children": []
                 },
                 {
-                    "name": "Profile",
-                    "routerLink": ["members-profile"],
-                    "identifier": "Profile",
+                    "name": "Project Dashboard",
+                    "routerLink": ["project-dashboard"],
+                    "identifier": "Project Dashboard",
                     "iconClass": "",
                     "breadcrumbMessage": "",
                     "isCategory": false,
@@ -32,18 +32,18 @@
             ]
         },
         {
-            "name": "Attendance",
-            "routerLink": ["attendance-employees"],
-            "identifier": "Attendance",
+            "name": "Projects",
+            "routerLink": [""],
+            "identifier": "Projects",
             "iconClass": "icofont-briefcase",
             "breadcrumbMessage": "",
             "isCategory": false,
             "isApp": false,
             "children": [
                 {
-                    "name": "Attendance",
-                    "routerLink": ["attendance-employees"],
-                    "identifier": "Attendance",
+                    "name": "Projects",
+                    "routerLink": ["projects"],
+                    "identifier": "Projects",
                     "iconClass": "",
                     "breadcrumbMessage": "",
                     "isCategory": false,

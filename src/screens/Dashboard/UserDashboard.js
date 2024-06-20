@@ -31,7 +31,7 @@ export default function UserDashboard (){
         // Fetch data from API
         const fetchData = () => {
             return makeAPICall({
-              path: "/user/attendance/",
+              path: "/user/attendance",
               method: "GET",
             })
               .then((res) => {

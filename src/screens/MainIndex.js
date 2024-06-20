@@ -55,6 +55,7 @@ import PageHeader1 from "../components/common/PageHeader1";
 import Documentation from "./Documentation/Documentation";
 import Changelog from "./Changelog/Changelog";
 import Help from "./Dashboard/Help";
+import AdminCreateUser from "./OtherPages/AdminCreateUser";
 
 function MainIndex(props) {
 
@@ -65,7 +66,7 @@ function MainIndex(props) {
             {activekey !== "/chat-app" ? activekey === "/documentation" ? <PageHeader1 /> : <Header /> : ""}
             <div className="body d-flex py-lg-3 py-md-2">
             <ReactRoutes>
-                <Route exact path={`${process.env.PUBLIC_URL}/`} element={<HrDashboard/>} />
+                <Route exact path={`${process.env.PUBLIC_URL}/`} element={<PrivateRoute><UserDashboard/></PrivateRoute>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/hr-dashboard`} element={<HrDashboard/>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/project-dashboard`} element={<ProjectDashboard/>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/projects`} element={<PrivateRoute><Projects/></PrivateRoute>} />
@@ -92,6 +93,7 @@ function MainIndex(props) {
                 <Route exact path={`${process.env.PUBLIC_URL}/chat-app`} element={<ChatApp/>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/apex-charts`} element={<ApexCharts/>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/forms-example`} element={<FormsExample/>} />
+                <Route exact path={`${process.env.PUBLIC_URL}/admin/create-user`} element={<PrivateRoute><AdminCreateUser/></PrivateRoute>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/table-example`} element={<TablesExample/>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/reviews-page`} element={<ReviewsPage/>} />
                 <Route exact path={`${process.env.PUBLIC_URL}/icons`} element={<Icons/>} />

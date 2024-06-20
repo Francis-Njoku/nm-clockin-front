@@ -77,7 +77,7 @@ export default function Header() {
   function getUserProfile() {
     //setLoading(true);
     return makeAPICall({
-      path: "/auth/profile/",
+      path: "/auth/profile",
       method: "GET",
       params: null,
     })

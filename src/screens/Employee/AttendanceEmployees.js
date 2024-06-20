@@ -32,7 +32,7 @@ export default function AttendanceEmployees() {
     useEffect(() => {
         const fetchData = () => {
           return makeAPICall({
-            path: "/user/attendance/",
+            path: "/user/attendance",
             method: "GET",
           })
             .then((res) => {
@@ -106,49 +106,8 @@ export default function AttendanceEmployees() {
 
     return (
         <div className="container-xxl">
-            <PageHeader headerTitle="Attendance Employees" />
-            <div className="row align-item-center row-deck g-3 mb-3">
-                <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-12">
-                    <GeneralChartCard Title="Today Time Utilisation" extraDivBody={() =>
-                        <div className="timesheet-info d-flex align-items-center justify-content-between flex-wrap">
-                            <div className="intime d-flex align-items-center mt-2">
-                                <i className="icofont-finger-print fs-4 color-light-success"></i>
-                                <span className="fw-bold ms-1">Punching: 10:00 Am</span>
-                            </div>
-                            <div className="outtime mt-2 w-sm-100">
-                                <button type="button" className="btn btn-dark w-sm-100"><i className="icofont-foot-print me-2"></i>Punch Out</button>
-                            </div>
-                        </div>
-                    }
-                        identity="todaytimeutl"
-                        data={TodayTimeUtilisationData}
-                        footerBody={
-                            <div class="timesheet-info d-flex align-items-center justify-content-around flex-wrap">
-                                <div class="intime d-flex align-items-center">
-                                    <i class="icofont-lunch fs-3 color-lavender-purple"></i>
-                                    <span class="fw-bold ms-1">Break: 1:10 Hr</span>
-                                </div>
-                                <div class="intime d-flex align-items-center">
-                                    <i class="icofont-ui-timer fs-4 color-light-success"></i>
-                                    <span class="fw-bold ms-1">Overtime: 02:10 Hr</span>
-                                </div>
-                            </div>
-                        }
-                    />
-
-                </div>
-                <div className="col-xxl-8 col-xl-8 col-lg-8 col-md-12">
-                    <GeneralChartCard Title="Employess Yearly Status" identity="Employessyearlystatus" data={EmployessYearlyStatusData} />
-                </div>
-
-            </div>
-
-
-
-
-
+            <PageHeader headerTitle="Attendance" />
             <div className="container mt-5">
-      <h1>Calendar with Paginated Data and Date Picker</h1>
       <div className="mb-3">
         <DatePicker
           selected={startDate}
