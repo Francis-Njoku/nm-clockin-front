@@ -29,7 +29,7 @@ export default function PasswordReset (){
       //callbackUrl: "yieldroom.africa",
     };
     return makeAPICall({
-      path: "/forgot-password/",
+      path: "/forgot-password",
       method: "POST",
       payload: data,
     })

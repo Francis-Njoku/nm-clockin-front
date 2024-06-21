@@ -59,7 +59,7 @@ export default function SignIn (){
                                 <div className="form-label">
                                     <span className="d-flex justify-content-between align-items-center">
                                         Password
-                                        <Link className="text-secondary" to="password-reset">Forgot Password?</Link>
+                                        <Link className="text-secondary" to={`${process.env.PUBLIC_URL}/password-reset`}>Forgot Password?</Link>
                                     </span>
                                 </div>
                                 <input name="password" type="password" value={inputValues.password} onChange={handleChangeInput} className="form-control form-control-lg" placeholder="***************" />

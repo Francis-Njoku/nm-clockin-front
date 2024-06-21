@@ -5,7 +5,7 @@ export const AUTH_TOKEN = "__API_TOKEN__";
 export const getAuthToken = () => window.localStorage.getItem(AUTH_TOKEN);
 //require('dotenv').config();
 const baseURL = process.env.REACT_APP_API_ENDPOINT;
-console.log(baseURL);
+//console.log(baseURL);
 
 const makeAPICall = async (
   { path, method = "POST", payload = null, params = null },
@@ -18,8 +18,8 @@ const makeAPICall = async (
     "Content-type": "application/json",
   };
   //console.log("deborah");
-  console.log(baseURL);
-  console.log('API Endpoint:', process.env.REACT_APP_API_ENDPOINT);
+  //console.log(baseURL);
+  //console.log('API Endpoint:', process.env.REACT_APP_API_ENDPOINT);
   if (token) headers.Authorization = `Bearer ${token}`;
 
   const configs = {
@@ -35,7 +35,7 @@ const makeAPICall = async (
 
   let url = new window.URL(`${baseURL}${path}`);
 
-  console.log(url);
+  //console.log(url);
   //console.log("deborah3");
 
   const buildParams = (data) => {
@@ -60,7 +60,7 @@ const makeAPICall = async (
     .fetch(url, configs)
     .then(async (response) => {
       const data = await response.json();
-       console.log(data, "test");
+       //console.log(data, "test");
       if (!response.ok) {
         let errorMessage;
         if (response.status === 401) {

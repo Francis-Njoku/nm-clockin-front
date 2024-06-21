@@ -4,17 +4,20 @@ import { message } from "antd";
 //import { useNavigate } from 'react-router-dom';
 import DataTable from "react-data-table-component";
 import PageHeader from "../../components/common/PageHeader";
-import { TimeAttandanceData } from "../../components/Data/AppData";
-import { EmployessYearlyStatusData, TodayTimeUtilisationData } from "../../components/Data/ChartData";
-import RecentActivityCard from "../../components/Employees/RecentActivityCard";
-import StatisticsCard from "../../components/Employees/StatisticsCard";
-import GeneralChartCard from "../../components/Employees/TodayTimeUtilisation";
+//import { TimeAttandanceData } from "../../components/Data/AppData";
+//import { EmployessYearlyStatusData, TodayTimeUtilisationData } from "../../components/Data/ChartData";
+//import RecentActivityCard from "../../components/Employees/RecentActivityCard";
+//import StatisticsCard from "../../components/Employees/StatisticsCard";
+//import GeneralChartCard from "../../components/Employees/TodayTimeUtilisation";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ReactPaginate from 'react-paginate';
+import { useTable, usePagination } from 'react-table';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import '../../assets/css/paginate.css';
 
 export default function AttendanceEmployees() {
     const localizer = momentLocalizer(moment);
@@ -25,6 +28,7 @@ export default function AttendanceEmployees() {
     const [itemOffset, setItemOffset] = useState(0);
     const [fetchData, setFetchData] = useState(0);
     const itemsPerPage = 10;
+    const [currentPage, setCurrentPage] = useState(0);
     const [selectedMonth, setSelectedMonth] = useState(moment().month());
     const [selectedYear, setSelectedYear] = useState(moment().year());
     const [filteredEvents, setFilteredEvents] = useState([]);
@@ -78,10 +82,10 @@ export default function AttendanceEmployees() {
         setCurrentItems(data.slice(itemOffset, endOffset));
       }, [itemOffset, data]);
     
-    const handlePageClick = (event) => {
+    /*const handlePageClick = (event) => {
         const newOffset = (event.selected * itemsPerPage) % data.length;
         setItemOffset(newOffset);
-    };
+    };*/
     
     /*const events = data.map(item => ({
         title: `${item.user_id[0].firstName} ${item.user_id[0].lastName} - ${item.attendance.name}`,
@@ -98,10 +102,64 @@ export default function AttendanceEmployees() {
         setSelectedYear(parseInt(event.target.value));
     };
 
+    const handlePageClick = (event) => {
+      setCurrentPage(event.selected);
+    };
+
     /*const filteredEvents = events.filter(event => {
         const eventDate = moment(event.start);
         return eventDate.month() === selectedMonth && eventDate.year() === selectedYear;
     });*/
+
+    const columns = React.useMemo(
+      () => [
+        {
+          Header: 'ID',
+          accessor: 'id',
+        },
+        {
+          Header: 'Name',
+          accessor: (row) => `${row.user_id[0].firstName} ${row.user_id[0].lastName}`,
+        },
+        {
+          Header: 'Attendance',
+          accessor: 'attendance.name',
+        },
+        {
+          Header: 'Status',
+          accessor: 'attendance.status',
+        },
+        {
+          Header: 'Clock',
+          accessor: 'clock',
+        },
+        {
+          Header: 'IP Address',
+          accessor: 'ipAddress',
+        },
+      ],
+      []
+    );
+  
+    const {
+      getTableProps,
+      getTableBodyProps,
+      headerGroups,
+      prepareRow,
+      page, // Instead of rows, we use page,
+      // which has only the rows for the active page
+    } = useTable(
+      {
+        columns,
+        data: React.useMemo(() => {
+          const start = currentPage * itemsPerPage;
+          const end = start + itemsPerPage;
+          return data.slice(start, end);
+        }, [data, currentPage]),
+        initialState: { pageIndex: 0 },
+      },
+      usePagination
+    );
     
 
     return (
@@ -142,74 +200,53 @@ export default function AttendanceEmployees() {
           showMultiDayTimes
         />
       </div>
-      <div className="mt-3">
-        <ul className="list-group">
-          {currentItems.map((item) => (
-            <li key={item.id} className="list-group-item">
-              <p><strong>Name:</strong> {item.user_id[0].firstName} {item.user_id[0].lastName}</p>
-              <p><strong>Attendance:</strong> {item.attendance.name} ({item.attendance.status})</p>
-              <p><strong>Clock:</strong> {item.clock}</p>
-              <p><strong>IP Address:</strong> {item.ipAddress}</p>
-            </li>
+      <div className="container mt-5">
+      <h1>Table Summary</h1>
+      <table {...getTableProps()} className="table table-striped table-bordered">
+        <thead>
+          {headerGroups.map(headerGroup => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map(column => (
+                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+              ))}
+            </tr>
           ))}
-        </ul>
-        <ReactPaginate
-          previousLabel={"previous"}
-          nextLabel={"next"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          pageCount={pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          subContainerClassName={"pages pagination"}
-          activeClassName={"active"}
-          pageClassName={"page-item"}
-          pageLinkClassName={"page-link"}
-          previousClassName={"page-item"}
-          previousLinkClassName={"page-link"}
-          nextClassName={"page-item"}
-          nextLinkClassName={"page-link"}
-          breakLinkClassName={"page-link"}
-        />
-      </div>
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {page.map(row => {
+            prepareRow(row);
+            const rowClass = row.original.attendance.name === 'clock in' ? 'clock-in' : 'clock-out';
+            return (
+              <tr {...row.getRowProps()} className={rowClass}>
+                {row.cells.map(cell => (
+                  <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                ))}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <ReactPaginate
+        previousLabel={'previous'}
+        nextLabel={'next'}
+        breakLabel={'...'}
+        breakClassName={'pagination-button'}
+        breakLinkClassName={'pagination-button'}
+        pageCount={pageCount}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={handlePageClick}
+        containerClassName={'pagination-container'}
+        pageClassName={'pagination-button'}
+        pageLinkClassName={'pagination-button'}
+        previousClassName={'pagination-button'}
+        previousLinkClassName={'pagination-button'}
+        nextClassName={'pagination-button'}
+        nextLinkClassName={'pagination-button'}
+        activeClassName={'active'}
+      />
     </div>
-
-
-
-
-
-
-
-
-
-            <div className="row clearfix g-3 mb-3">
-                <div className="col-lg-12 col-md-12 flex-column">
-                    <div className="row g-3 row-deck">
-                        <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12">
-                            <StatisticsCard />
-                        </div>
-                        <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12">
-                            <RecentActivityCard />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="row clearfix g-3">
-                <div className="col-sm-12">
-                    <DataTable
-                        title={TimeAttandanceData.title}
-                        columns={TimeAttandanceData.columns}
-                        data={TimeAttandanceData.rows}
-                        defaultSortField="title"
-                        pagination
-                        selectableRows={false}
-                        className="table myDataTable table-hover align-middle mb-0 d-row nowrap dataTable no-footer dtr-inline"
-                        highlightOnHover={true}
-                    />
-                </div>
-            </div>
+    </div>
         </div>
     )
 };
