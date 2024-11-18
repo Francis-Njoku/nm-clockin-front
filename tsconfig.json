@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "jsx": "preserve",
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "global/*": ["./src/*"],
+      "auth/*": ["./src/(modules)/auth/*"],
+      "data/*": ["./src/(modules)/data/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "./src", "vite.config.mjs"],
+  "exclude": ["./node_modules"]
+}

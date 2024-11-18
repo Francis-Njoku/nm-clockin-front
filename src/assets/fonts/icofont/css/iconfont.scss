@@ -3,9 +3,9 @@
    font-family: 'IcoFont';
     src: url('../fonts/icofont.eot');
     src:  url('../fonts/icofont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/icofont.woff') format("woff"),
-    url('../fonts/icofont.ttf') format('truetype'),
-    url('../fonts/icofont.svg') format('svg');
+    url('/src/assets/fonts/icofont/fonts/icofont.woff') format("woff"),
+    url('/src/assets/fonts/icofont/fonts/icofont.ttf') format('truetype'),
+    url('/src/assets/fonts/icofont/fonts/icofont.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
