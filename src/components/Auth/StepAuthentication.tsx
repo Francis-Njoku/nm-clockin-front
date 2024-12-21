@@ -1,9 +1,12 @@
-import React, { useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import GoogleImg from '../../assets/images/verify.svg'
-import makeAPICall from '../../utils/api'
+import React, { useRef, useState } from 'react'
+
 import { message } from 'antd'
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+
+import { makeAPICall } from 'global/utils/api'
+
+import GoogleImg from 'global/assets/images/verify.svg'
 
 export default function StepAuthentication() {
   const [values, setValues] = useState(['', '', '', '', '', ''])

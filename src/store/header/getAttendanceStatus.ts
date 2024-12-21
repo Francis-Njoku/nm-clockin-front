@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-import makeAPICall from '../../utils/api'
 import { message } from 'antd'
+
+import { makeAPICall } from 'global/utils/api'
 
 const initialState = {
   loading: false,

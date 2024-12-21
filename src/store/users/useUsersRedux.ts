@@ -1,11 +1,13 @@
 'use client'
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { message } from 'antd'
 
-import makeAPICall from '../../utils/api'
-import { useAppDispatch, useAppSelector } from '..'
+import { useEffect } from 'react'
+
 import { setUserInfo, setUsers } from '.'
+import { useAppDispatch, useAppSelector } from '..'
+import { message } from 'antd'
+import { useNavigate } from 'react-router-dom'
+
+import { makeAPICall } from 'global/utils/api'
 
 function useUsersRedux() {
   const { userInfo, users } = useAppSelector((state) => state.users) || {}

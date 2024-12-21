@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from 'react'
-import ClientProfileCard from '../../components/Clients/ClientProfileCard'
-import PageHeader from '../../partials/PageHeader'
+import React, { useEffect, useState } from 'react'
+
+import { message } from 'antd'
+
+import useAuthRedux from 'global/store/auth/useAuthRedux'
+
+import { makeAPICall } from 'global/utils/api'
+import { capitalizeFirstLetterOfEachWord } from 'global/utils/helperFunctions'
+
 //import CurrentClientProject from "../../components/Clients/CurrentClientProject";
 //import { clentProfileData, employeeInformationDetails } from "../../components/Data/AppData";
 //import PersonalInformations from "../../components/Employees/PersonalInformations";
 //import CurrentTask from "../../components/Employees/CurrentTask";
 //import ExperienceCard from "../../components/Employees/ExperienceCard";
 import { Modal } from 'react-bootstrap'
-import makeAPICall from '../../utils/api'
-import { message } from 'antd'
-import { capitalizeFirstLetterOfEachWord } from '../../utils/helperFunctions'
-import useAuthRedux from 'global/store/auth/useAuthRedux'
+
+import ClientProfileCard from 'global/__template/components/Clients/ClientProfileCard'
+
+import PageHeader from 'global/components/__Library/PageHeader'
 
 export default function EmployeeProfile() {
   const [ismodal, setIsmodal] = useState(false)

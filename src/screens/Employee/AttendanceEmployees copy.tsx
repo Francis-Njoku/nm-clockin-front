@@ -1,11 +1,14 @@
 import React from 'react'
+
+import { TimeAttandanceData } from 'global/data/AppData'
+import { EmployessYearlyStatusData, TodayTimeUtilisationData } from 'global/data/ChartData'
+
 import DataTable from 'react-data-table-component'
-import PageHeader from '../../partials/PageHeader'
-import { TimeAttandanceData } from '../../data/AppData'
-import { EmployessYearlyStatusData, TodayTimeUtilisationData } from '../../data/ChartData'
-import RecentActivityCard from '../../components/Employees/RecentActivityCard'
-import StatisticsCard from '../../components/Employees/StatisticsCard'
-import GeneralChartCard from '../../components/Employees/TodayTimeUtilisation'
+
+import RecentActivityCard from 'global/components/Employees/RecentActivityCard'
+import StatisticsCard from 'global/components/Employees/StatisticsCard'
+import GeneralChartCard from 'global/components/Employees/TodayTimeUtilisation'
+import PageHeader from 'global/components/__Library/PageHeader'
 
 function AttendanceEmployees() {
   return (

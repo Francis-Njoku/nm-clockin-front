@@ -1,10 +1,11 @@
 import React from 'react'
-import Avatar1 from '../assets/images/xs/avatar1.jpg'
-import Avatar2 from '../assets/images/xs/avatar2.jpg'
-import Avatar3 from '../assets/images/xs/avatar3.jpg'
-import Avatar4 from '../assets/images/xs/avatar4.jpg'
-import Avatar5 from '../assets/images/xs/avatar5.jpg'
-import Avatar6 from '../assets/images/xs/avatar6.jpg'
+
+import Avatar1 from 'global/assets/images/xs/avatar1.jpg'
+import Avatar2 from 'global/assets/images/xs/avatar2.jpg'
+import Avatar3 from 'global/assets/images/xs/avatar3.jpg'
+import Avatar4 from 'global/assets/images/xs/avatar4.jpg'
+import Avatar5 from 'global/assets/images/xs/avatar5.jpg'
+import Avatar6 from 'global/assets/images/xs/avatar6.jpg'
 
 export const EmployeeInfoChartData = {
   options: {

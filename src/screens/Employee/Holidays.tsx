@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+
+import { HolidaysData } from 'global/data/AppData'
+
 import { Modal } from 'react-bootstrap'
 import DataTable from 'react-data-table-component'
-import PageHeader from '../../partials/PageHeader'
-import { HolidaysData } from '../../data/AppData'
+
+import PageHeader from 'global/components/__Library/PageHeader'
 
 function Holidays() {
   const [isModal, setIsModal] = useState(false)

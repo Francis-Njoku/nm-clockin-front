@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
-import ClientProfileCard from '../../components/Clients/ClientProfileCard'
-import PageHeader from '../../partials/PageHeader'
-import CurrentClientProject from '../../components/Clients/CurrentClientProject'
-import { clentProfileData, employeeInformationDetails } from '../../data/AppData'
-import PersonalInformations from '../../components/Employees/PersonalInformations'
-import CurrentTask from '../../components/Employees/CurrentTask'
-import ExperienceCard from '../../components/Employees/ExperienceCard'
+
+import { clentProfileData, employeeInformationDetails } from 'global/data/AppData'
+
 import { Modal } from 'react-bootstrap'
+
+import ClientProfileCard from 'global/__template/components/Clients/ClientProfileCard'
+import CurrentClientProject from 'global/__template/components/Clients/CurrentClientProject'
+
+import CurrentTask from 'global/components/Employees/CurrentTask'
+import ExperienceCard from 'global/components/Employees/ExperienceCard'
+import PersonalInformations from 'global/components/Employees/PersonalInformations'
+import PageHeader from 'global/components/__Library/PageHeader'
 
 function EmployeeProfile() {
   const [ismodal, setIsmodal] = useState(false)

@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
 import useAuthRedux from './useAuthRedux'
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   auth: {

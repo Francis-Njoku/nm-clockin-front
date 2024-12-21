@@ -1,14 +1,17 @@
 import { useEffect } from 'react'
-import { message } from 'antd'
 
+import { setLoginState, setProfileState, setRegisterState } from '.'
 import { useAppDispatch, useAppSelector } from '..'
-import makeAPICall from '../../utils/api'
+import { message } from 'antd'
+import { createBrowserHistory } from 'history'
 import { useNavigate } from 'react-router'
-import history from '../../services/history'
-import { AUTH_TOKEN, REDIRECT_URL } from '../../utils/constants'
-import { setLoginState, setRegisterState, setProfileState } from '.'
+
+import { makeAPICall } from 'global/utils/api'
+import { AUTH_TOKEN, REDIRECT_URL } from 'global/utils/constants'
 
 export default function useAuthRedux() {
+  const history = createBrowserHistory()
+
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const { auth, register, profile } = useAppSelector((state) => state.auth) || {}

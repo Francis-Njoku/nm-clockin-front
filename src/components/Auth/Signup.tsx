@@ -1,8 +1,10 @@
-import { useAuthRedux } from 'global/store/auth'
 import React from 'react'
+
+import { ErrorMessage } from '@hookform/error-message'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
-import { ErrorMessage } from '@hookform/error-message'
+
+import { useAuthRedux } from 'global/store/auth'
 
 function Signup() {
   const { registerUser } = useAuthRedux()

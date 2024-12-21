@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+
+import { DepartmentsData } from 'global/data/AppData'
+
 import { Modal } from 'react-bootstrap'
 import DataTable from 'react-data-table-component'
-import PageHeader from '../../partials/PageHeader'
-import { DepartmentsData } from '../../data/AppData'
+
+import PageHeader from 'global/components/__Library/PageHeader'
 
 var columnsT = ''
 function Departments() {

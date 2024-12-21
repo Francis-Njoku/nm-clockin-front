@@ -1,8 +1,5 @@
 'use client'
-import { useAppDispatch, useAppSelector } from '..'
 
-import makeAPICall from '../../utils/api'
-import { message } from 'antd'
 import { useEffect } from 'react'
 
 import {
@@ -12,6 +9,11 @@ import {
   setLeavesAdmin,
   setUsers
 } from '.'
+import { useAppDispatch, useAppSelector } from '..'
+import { message } from 'antd'
+
+import { makeAPICall } from 'global/utils/api'
+
 function useLeaveRedux() {
   const { myLeaveRequests, myTeamLeaveRequests, leaveInfo, leavesAdmin, users } =
     useAppSelector((state) => state.leave) || {}

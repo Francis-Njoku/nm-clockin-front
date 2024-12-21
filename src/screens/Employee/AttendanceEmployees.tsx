@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
 import moment from 'moment'
-import makeAPICall from '../../utils/api'
-import PageHeader from '../../partials/PageHeader'
+import 'react-big-calendar/lib/css/react-big-calendar.css'
+import 'react-datepicker/dist/react-datepicker.css'
+import { usePagination, useTable } from 'react-table'
+
+import { makeAPICall } from 'global/utils/api'
+
+import { Calendar, momentLocalizer } from 'react-big-calendar'
 import DatePicker from 'react-datepicker'
 import ReactPaginate from 'react-paginate'
-import { useTable, usePagination } from 'react-table'
-import { Calendar, momentLocalizer } from 'react-big-calendar'
 
-import 'react-datepicker/dist/react-datepicker.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'react-big-calendar/lib/css/react-big-calendar.css'
+import PageHeader from 'global/components/__Library/PageHeader'
+
 import 'global/styles/paginate.css'
 
 export default function AttendanceEmployees() {

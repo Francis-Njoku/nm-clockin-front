@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+
 import { Link } from 'react-router-dom'
-import useLoginStore from '../../store/auth/useAuthRedux'
+
+import useLoginStore from 'global/store/auth/useAuthRedux'
 
 // @ts-expect-error img
-import GoogleImg from '../../assets/images/google.svg'
+import GoogleImg from 'global/assets/images/google.svg'
 
 export default function SignIn() {
   const { loginUser } = useLoginStore()

@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import { Modal, Dropdown } from 'react-bootstrap'
-import PageHeader from '../../partials/PageHeader'
-import AttendanceCard from '../../components/Employees/AttendanceCard'
+
+import { Dropdown, Modal } from 'react-bootstrap'
+
+import AttendanceCard from 'global/components/Employees/AttendanceCard'
+import PageHeader from 'global/components/__Library/PageHeader'
 
 function Attendance() {
   const [isModal, setIsModal] = useState(false)

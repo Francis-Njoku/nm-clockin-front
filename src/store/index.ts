@@ -1,23 +1,21 @@
+import alertReducer from './alert'
+import authReducer from './auth'
+import leaveReducer from './leave'
+import usersReducer from './users'
 import { configureStore } from '@reduxjs/toolkit'
-import { combineReducers } from 'redux'
 import { TypedUseSelectorHook, useDispatch, useSelector, useStore } from 'react-redux'
-
+import { combineReducers } from 'redux'
 import {
   FLUSH,
-  REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
   REGISTER,
+  REHYDRATE,
   persistReducer,
   persistStore
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-
-import authReducer from './auth'
-import leaveReducer from './leave'
-import alertReducer from './alert'
-import usersReducer from './users'
 
 const rootReducer = combineReducers({
   auth: authReducer,

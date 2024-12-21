@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import makeAPICall from '../../utils/api'
+
 import { message } from 'antd'
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import GoogleImg from '../../assets/images/forgot-password.svg'
+
+import { makeAPICall } from 'global/utils/api'
+
+import GoogleImg from 'global/assets/images/forgot-password.svg'
 
 export default function PasswordReset() {
   //const [isLoading, setIsLoading] = useState(false);

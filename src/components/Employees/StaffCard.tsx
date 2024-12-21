@@ -1,4 +1,5 @@
 import React from 'react'
+
 import lgAvatar2 from 'global/assets/images/lg/avatar2.jpg'
 
 function StaffCard({ role, name }) {

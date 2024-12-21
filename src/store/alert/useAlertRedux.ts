@@ -1,5 +1,6 @@
+import { IAlert, alertError, alertSuccess, clear } from '.'
 import { useAppDispatch, useAppSelector } from '..'
-import { alertSuccess, alertError, clear, IAlert } from '.'
+
 // interfaces
 
 function useAlertRedux(): IAlertService {

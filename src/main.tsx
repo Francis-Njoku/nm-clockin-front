@@ -1,17 +1,19 @@
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+import store, { persistor } from './store'
+// React Big Calendar CSS
+
+import './styles/scss/main.scss'
+import 'chart.js/auto'
+// React Datepicker CSS
+import 'react-big-calendar/lib/css/react-big-calendar.css'
+// Bootstrap CSS
+import 'react-datepicker/dist/react-datepicker.css'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 
-import store, { persistor } from './store'
-import reportWebVitals from './reportWebVitals'
-import App from './App'
-
-import 'chart.js/auto'
-import 'bootstrap/dist/css/bootstrap.min.css' // Bootstrap CSS
-import 'react-datepicker/dist/react-datepicker.css' // React Datepicker CSS
-import 'react-big-calendar/lib/css/react-big-calendar.css' // React Big Calendar CSS
-
-import './styles/scss/main.scss'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(

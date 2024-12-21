@@ -1,6 +1,6 @@
-import AppLayout from './layouts/AppLayout'
-import AuthLayout from './layouts/AuthLayout'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import AppLayout from './partials/layouts/AppLayout'
+import AuthLayout from './partials/layouts/AuthLayout'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 const App = () => {
   return (

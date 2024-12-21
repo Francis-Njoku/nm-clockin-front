@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import { Dropdown } from 'react-bootstrap'
-import StaffCard from '../../components/Employees/StaffCard'
-import PageHeader from '../../partials/PageHeader'
-import { useUsersRedux } from 'global/store/users/useUsersRedux'
+
 import useAuthRedux from 'global/store/auth/useAuthRedux'
+import { useUsersRedux } from 'global/store/users/useUsersRedux'
+
+import { Dropdown } from 'react-bootstrap'
+
 import AddEmployee from 'global/components/Employees/AddEmployee'
+import StaffCard from 'global/components/Employees/StaffCard'
+import PageHeader from 'global/components/__Library/PageHeader'
 
 function Members() {
   const [isModal, setIsModal] = useState(false)

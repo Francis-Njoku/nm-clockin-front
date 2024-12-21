@@ -1,4 +1,5 @@
 {
+  "plugins": ["prettier-plugin-tailwindcss", "@trivago/prettier-plugin-sort-imports"],
   "semi": false,
   "tabWidth": 2,
   "printWidth": 100,
@@ -7,5 +8,27 @@
   "bracketSameLine": true,
   "quoteProps": "as-needed",
   "useTabs": false,
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "organizeImportsSkipDestructiveCodeActions": true,
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrder": [
+    "^(react/(.*)$)|^(react$)",
+    "^(next/(.*)$)|^(next$)",
+
+    "<THIRD_PARTY_MODULES>",
+
+    "^./(.*)$",
+    "^../(.*)$",
+
+    "^global/store/(.*)$",
+    "^global/utils/(.*)$",
+    "^(?!global/components/)(?!global/__template/)(?!global/assets/)(?!global/styles/)(global/(.*))$",
+
+    "^(?!global/(.*))(?!.(.*)css)(.*bootstrap.*|.*datepicker.*|.*paginate.*|.*calendar.*|.*component.*|.*ui.*)$",
+    "^global(.*)/__template/(.*)$",
+    "^global(.*)/components/(.*)$",
+
+    "^global/styles/(.*)$",
+    "^global/assets/(.*)$"
+  ]
 }
