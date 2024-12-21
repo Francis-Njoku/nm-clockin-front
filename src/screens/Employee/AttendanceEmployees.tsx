@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import makeAPICall from '../../utils/apiUtils'
-import { message } from 'antd'
-//import { useNavigate } from 'react-router-dom';
-import DataTable from 'react-data-table-component'
+import moment from 'moment'
+import makeAPICall from '../../utils/api'
 import PageHeader from '../../partials/PageHeader'
-//import { TimeAttandanceData } from "../../components/Data/AppData";
-//import { EmployessYearlyStatusData, TodayTimeUtilisationData } from "../../components/Data/ChartData";
-//import RecentActivityCard from "../../components/Employees/RecentActivityCard";
-//import StatisticsCard from "../../components/Employees/StatisticsCard";
-//import GeneralChartCard from "../../components/Employees/TodayTimeUtilisation";
 import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
 import ReactPaginate from 'react-paginate'
 import { useTable, usePagination } from 'react-table'
 import { Calendar, momentLocalizer } from 'react-big-calendar'
-import moment from 'moment'
+
+import 'react-datepicker/dist/react-datepicker.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import 'global/styles/paginate.css'
@@ -23,10 +16,7 @@ export default function AttendanceEmployees() {
   const localizer = momentLocalizer(moment)
   const [startDate, setStartDate] = useState(new Date())
   const [data, setData] = useState([])
-  const [currentItems, setCurrentItems] = useState([])
   const [pageCount, setPageCount] = useState(0)
-  const [itemOffset, setItemOffset] = useState(0)
-  const [fetchData, setFetchData] = useState(0)
   const itemsPerPage = 10
   const [currentPage, setCurrentPage] = useState(0)
   const [selectedMonth, setSelectedMonth] = useState(moment().month())
@@ -40,18 +30,14 @@ export default function AttendanceEmployees() {
         method: 'GET'
       })
         .then((res) => {
-          setFetchData(res)
           setData(res.data)
           setPageCount(Math.ceil(res.data.length / itemsPerPage))
-          setCurrentItems(res.data.slice(0, itemsPerPage))
-          console.log(res)
         })
         .catch((err) => {
           console.log(err)
         })
     }
     fetchData()
-    //getInvestments();
   }, [])
 
   useEffect(() => {
@@ -74,23 +60,6 @@ export default function AttendanceEmployees() {
     )
   }
 
-  useEffect(() => {
-    const endOffset = itemOffset + itemsPerPage
-    setCurrentItems(data.slice(itemOffset, endOffset))
-  }, [itemOffset, data])
-
-  /*const handlePageClick = (event) => {
-        const newOffset = (event.selected * itemsPerPage) % data.length;
-        setItemOffset(newOffset);
-    };*/
-
-  /*const events = data.map(item => ({
-        title: `${item.user_id[0].firstName} ${item.user_id[0].lastName} - ${item.attendance.name}`,
-        start: new Date(item.clock),
-        end: new Date(item.clock),
-        allDay: false
-    }));*/
-
   const handleMonthChange = (event) => {
     setSelectedMonth(parseInt(event.target.value))
   }
@@ -102,11 +71,6 @@ export default function AttendanceEmployees() {
   const handlePageClick = (event) => {
     setCurrentPage(event.selected)
   }
-
-  /*const filteredEvents = events.filter(event => {
-        const eventDate = moment(event.start);
-        return eventDate.month() === selectedMonth && eventDate.year() === selectedYear;
-    });*/
 
   const columns = React.useMemo(
     () => [
@@ -141,8 +105,8 @@ export default function AttendanceEmployees() {
   const {
     getTableProps,
     getTableBodyProps,
-    headerGroups,
     prepareRow,
+    headerGroups,
     page // Instead of rows, we use page,
     // which has only the rows for the active page
   } = useTable(
@@ -205,9 +169,13 @@ export default function AttendanceEmployees() {
           <table {...getTableProps()} className="table-striped table-bordered table">
             <thead>
               {headerGroups.map((headerGroup) => (
-                <tr {...headerGroup.getHeaderGroupProps()}>
+                <tr
+                  {...headerGroup.getHeaderGroupProps()}
+                  key={headerGroup.getHeaderGroupProps().key}>
                   {headerGroup.headers.map((column) => (
-                    <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                    <th {...column.getHeaderProps()} key={column.getHeaderProps().key}>
+                      {column.render('Header')}
+                    </th>
                   ))}
                 </tr>
               ))}
@@ -218,9 +186,11 @@ export default function AttendanceEmployees() {
                 const rowClass =
                   row.original.attendance.name === 'clock in' ? 'clock-in' : 'clock-out'
                 return (
-                  <tr {...row.getRowProps()} className={rowClass}>
+                  <tr {...row.getRowProps()} key={row.getRowProps().key} className={rowClass}>
                     {row.cells.map((cell) => (
-                      <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                      <td {...cell.getCellProps()} key={cell.getCellProps().key}>
+                        {cell.render('Cell')}
+                      </td>
                     ))}
                   </tr>
                 )

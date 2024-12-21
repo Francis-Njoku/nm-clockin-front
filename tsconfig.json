@@ -27,6 +27,6 @@
       "data/*": ["./src/(modules)/data/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "./src", "vite.config.mjs"],
+  "include": ["./src/**/*.tsx", "./src/**/*.ts", "vite.config.mjs", "index.d.ts"],
   "exclude": ["./node_modules"]
 }

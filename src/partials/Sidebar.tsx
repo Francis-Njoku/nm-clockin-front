@@ -2,12 +2,15 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { menu, menu2 } from '../components/Data'
-// @ts-expect-error abc
+import { menu, menu2 } from '../data/Menu'
 import NMLogo from '../assets/images/NMLogo.png'
+import useAuthRedux from 'global/store/auth/useAuthRedux'
 
 export default function Sidebar({ activekey }) {
   const navigate = useNavigate()
+  const {
+    auth: { data: profile }
+  } = useAuthRedux()
 
   const [isSidebarMini, setIsSidebarMini] = useState(false)
   const [menuData, setMenuData] = useState(menu)
@@ -143,10 +146,17 @@ export default function Sidebar({ activekey }) {
           href="attendance-summary"
           className="brand-icon align-center mb-0 flex flex-col justify-center">
           <img src={NMLogo} alt="" width={200} />
-          <span className="logo-text text-center">Employee Management</span>
+          {!isSidebarMini && <span className="logo-text text-center">Employee Management</span>}
         </a>
         <ul className="menu-list flex-grow-1 mt-3">
           {menuData.map((item, i) => {
+            if (item.isManager && !profile.isManager) {
+              return null
+            }
+            if (item.isAdmin && !profile.isAdmin) {
+              return null
+            }
+
             if (item.isToggled) {
               return (
                 <li key={'shsdg' + i}>
@@ -190,9 +200,16 @@ export default function Sidebar({ activekey }) {
                   <span className="arrow icofont-dotted-down fs-5 ms-auto text-end"></span>
                 </a>
                 {item.children.length > 0 ? (
-                  <ul className="sub-menu has-children" id={'menu-Pages' + i}>
+                  <ul className="sub-menu has-children [&:not(.show)]:hidden" id={'menu-Pages' + i}>
                     {item.children.map((data, ind) => {
-                      if (item.children.length > 0) {
+                      if (data.isManager && !profile.isManager) {
+                        return null
+                      }
+
+                      if (data.isAdmin && !profile.isAdmin) {
+                        return null
+                      }
+                      if (data.children.length > 0) {
                         if (activekey === '/' + data.routerLink[0]) {
                           setTimeout(() => {
                             openChildren1('menu-Pages' + i)
@@ -204,6 +221,7 @@ export default function Sidebar({ activekey }) {
                           <Link
                             className={`ms-link ${activekey === '/' + data.routerLink[0] ? 'active' : ''} `}
                             to={`` + '/' + data.routerLink[0]}>
+                            {}
                             <span>{data.name}</span>
                           </Link>
                         </li>
@@ -215,7 +233,7 @@ export default function Sidebar({ activekey }) {
             )
           })}
         </ul>
-        <ul className="list-unstyled mb-0">
+        {/* <ul className="list-unstyled mb-0">
           <li className="d-flex align-items-center justify-content-center">
             <div className="form-check form-switch theme-switch">
               <input
@@ -248,7 +266,7 @@ export default function Sidebar({ activekey }) {
               </label>
             </div>
           </li>
-        </ul>
+        </ul> */}
         <button
           type="button"
           className="btn btn-link sidebar-mini-btn text-light"

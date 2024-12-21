@@ -1,7 +1,7 @@
 import React from 'react'
 import DataTable from 'react-data-table-component'
 import PageHeader from '../../partials/PageHeader'
-import { PaymentsData } from '../../components/Data/AppData'
+import { PaymentsData } from '../../data/AppData'
 
 function Payments() {
   return (

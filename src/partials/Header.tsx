@@ -15,12 +15,13 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import AddNewUserModal from './AddNewUserModal'
 import { capitalizeFirstLetterOfEachWord } from '../utils/helperFunctions'
+import { useAuthRedux } from 'global/store/auth/index.js'
 //import ReactDOM from "react-dom";
 //import TimezoneSelect from "react-timezone-select";
 import { useNavigate, useLocation } from 'react-router-dom'
 //import { useTimezoneSelect, allTimezones } from "react-timezone-select";
 import CityTime from './CityTime'
-import makeAPICall from '../utils/apiUtils'
+import makeAPICall from '../utils/api'
 import {
   getCurrentAttendanceStatusSelector,
   GetAttendanceStatus
@@ -30,7 +31,7 @@ const baseURL = import.meta.env.VITE_PUBLIC_URL
 
 export default function Header() {
   const [time, setTime] = useState(new Date())
-
+  const { logout } = useAuthRedux()
   useEffect(() => {
     const timer = setInterval(() => {
       setTime(new Date())
@@ -44,7 +45,6 @@ export default function Header() {
   const [loading, setLoading] = useState(false)
   const { pathname } = useLocation()
   const [summary, setSummary] = useState(0)
-  const [profile, setProfile] = useState(0)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -56,7 +56,6 @@ export default function Header() {
     dispatch(GetAttendanceStatus({}));
   }, [dispatch]);
 
-  console.log(attendance, "test");
   */
   useEffect(() => {
     const summary = () => {
@@ -66,7 +65,6 @@ export default function Header() {
       })
         .then((res) => {
           setSummary(res)
-          console.log(res)
         })
         .catch((err) => {
           console.log(err)
@@ -76,26 +74,8 @@ export default function Header() {
     //getInvestments();
   }, [])
 
-  function getUserProfile() {
-    //setLoading(true);
-    return makeAPICall({
-      path: '/auth/profile',
-      method: 'GET',
-      params: null
-    })
-      .then((res) => {
-        setProfile(res)
-        console.log(res)
-      })
-      .catch((err) => {
-        setLoading(false)
-        message.error(err.message, 5)
-      })
-  }
-
-  useEffect(() => {
-    getUserProfile()
-  }, [])
+  const { getProfile, profile } = useAuthRedux()
+  getProfile()
 
   const cities = [
     { name: 'New York', timezone: 'America/New_York' },
@@ -159,13 +139,13 @@ export default function Header() {
                 <img className="avatar rounded-circle" src={Avatar4} alt="" />
                 <img className="avatar rounded-circle" src={Avatar7} alt="" />
                 <img className="avatar rounded-circle" src={Avatar8} alt="" />
-                <span
+                {/* <span
                   className="avatar rounded-circle pointer text-center"
                   onClick={() => {
                     setIsAddUserModa(true)
                   }}>
                   <i className="icofont-ui-add"></i>
-                </span>
+                </span> */}
               </div>
             </div>
             <Dropdown className="dropdown user-profile ms-sm-3 d-flex align-items-center ms-2">
@@ -197,26 +177,26 @@ export default function Header() {
                       </div>
                     </div>
 
-                    <div>
-                      <hr className="dropdown-divider border-dark" />
-                    </div>
+                    <hr className="dropdown-divider border-dark" />
                   </div>
                   <div className="list-group m-2">
-                    <Link to="tasks" className="list-group-item list-group-item-action border-0">
+                    {/* <Link to="tasks" className="list-group-item list-group-item-action border-0">
                       <i className="icofont-tasks fs-5 me-3"></i>My Task
-                    </Link>
+                    </Link> */}
                     <Link to="members" className="list-group-item list-group-item-action border-0">
                       <i className="icofont-ui-user-group fs-6 me-3"></i>members
                     </Link>
-                    <Link to="sign-in" className="list-group-item list-group-item-action border-0">
-                      <i className="icofont-logout fs-6 me-3"></i>Signout
-                    </Link>
-                    <div>
-                      <hr className="dropdown-divider border-dark" />
-                    </div>
-                    <Link to="sign-up" className="list-group-item list-group-item-action border-0">
+                    {/* <Link
+                      to="auth/sign-up"
+                      className="list-group-item list-group-item-action border-0">
                       <i className="icofont-contact-add fs-5 me-3"></i>Add personal account
-                    </Link>
+                    </Link> */}
+                    <hr className="dropdown-divider border-dark" />
+                    <button
+                      onClick={() => logout()}
+                      className="list-group-item list-group-item-action border-0">
+                      <i className="icofont-logout fs-6 me-3"></i>Signout
+                    </button>
                   </div>
                 </div>
               </Dropdown.Menu>

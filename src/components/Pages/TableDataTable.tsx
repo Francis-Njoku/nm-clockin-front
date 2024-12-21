@@ -1,9 +1,8 @@
-import React from "react";
-import DataTable from "react-data-table-component";
-import { LeadersListData } from "../Data/AppData";
+import React from 'react'
+import DataTable from 'react-data-table-component'
+import { LeadersListData } from '../../data/AppData'
 
 function TableDataTable() {
-
   return (
     <div className="card mb-3">
       <DataTable
@@ -14,12 +13,11 @@ function TableDataTable() {
         pagination
         subHeader
         selectableRows={false}
-        className="table myDataTable table-hover align-middle mb-0 d-row nowrap dataTable no-footer dtr-inline"
+        className="myDataTable table-hover d-row nowrap dataTable no-footer dtr-inline mb-0 table align-middle"
         highlightOnHover={true}
       />
     </div>
-  );
+  )
 }
 
-
-export default TableDataTable;
+export default TableDataTable

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import makeAPICall from '../../utils/apiUtils'
+import makeAPICall from '../../utils/api'
 import { message } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import GoogleImg from '../../assets/images/forgot-password.svg'
@@ -83,7 +83,7 @@ export default function PasswordReset() {
           </div>
           <div className="col-12 mt-4 text-center">
             <span className="text-muted">
-              <Link to={`/sign-in`} className="text-secondary">
+              <Link to={`/auth/sign-in`} className="text-secondary">
                 Back to Sign in
               </Link>
             </span>

@@ -1,10 +1,9 @@
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
-import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
 
+import store, { persistor } from './store'
 import reportWebVitals from './reportWebVitals'
-import store from './store'
 import App from './App'
 
 import 'chart.js/auto'
@@ -13,8 +12,6 @@ import 'react-datepicker/dist/react-datepicker.css' // React Datepicker CSS
 import 'react-big-calendar/lib/css/react-big-calendar.css' // React Big Calendar CSS
 
 import './styles/scss/main.scss'
-
-const persistor = persistStore(store)
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(

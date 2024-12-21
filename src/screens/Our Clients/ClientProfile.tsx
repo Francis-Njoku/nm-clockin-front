@@ -4,8 +4,8 @@ import ClientProfileCard from '../../components/Clients/ClientProfileCard'
 import ClientTaskCard from '../../components/Clients/ClientTaskCard'
 import CurrentClientProject from '../../components/Clients/CurrentClientProject'
 import PageHeader from '../../partials/PageHeader'
-import { clentProfileData } from '../../components/Data/AppData'
-import { ClientInvoicesData } from '../../components/Data/DashboardData'
+import { clentProfileData } from '../../data/AppData'
+import { ClientInvoicesData } from '../../data/DashboardData'
 
 function ClientProfile() {
   return (

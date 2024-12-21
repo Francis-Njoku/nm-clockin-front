@@ -9,7 +9,7 @@ import {
   radarChartData,
   simpleChartTileData,
   circleChart
-} from '../../components/Data/ChartData'
+} from '../../data/ChartData'
 import PageHeader from '../../partials/PageHeader'
 
 function ApexCharts() {

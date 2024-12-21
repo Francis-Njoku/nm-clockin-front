@@ -5,7 +5,7 @@ import AllocatedTask from '../../components/Projects/AllocatedTask'
 import RecentActivity from '../../components/Projects/RecentActivity'
 import TaskProgress from '../../components/Projects/TaskProgress'
 // import 'react-nestable/dist/styles/index.css';
-import { CompletedData, InProgressTaskData, needReviewData } from '../../components/Data/AppData'
+import { CompletedData, InProgressTaskData, needReviewData } from '../../data/AppData'
 import TaskNestable1 from '../../components/Projects/TaskNestable1'
 
 function Tasks() {

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Dropdown, Modal } from 'react-bootstrap'
 import OurClients from '../../components/Clients/OurClients'
 import PageHeader from '../../partials/PageHeader'
-import { OurClientsData } from '../../components/Data/AppData'
+import { OurClientsData } from '../../data/AppData'
 
 function Clients() {
   const [isModal, setIsModal] = useState(false)

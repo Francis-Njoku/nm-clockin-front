@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import makeAPICall from '../utils/apiUtils'
+import makeAPICall from '../utils/api'
 import { Table, message, Modal, Input } from 'antd'
 
 export default function LocationTime({ city }) {

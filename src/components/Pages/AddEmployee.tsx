@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import makeAPICall from '../../utils/apiUtils'
+import makeAPICall from '../../utils/api'
 import { message } from 'antd'
 import TimezoneSelect from 'react-timezone-select'
 import { capitalizeFirstLetterOfEachWord } from '../../utils/helperFunctions'
-import useRegisterStore from '../../store/register/useRegisterStore'
+import useAuthRedux from '../../store/auth/useAuthRedux'
 
 export default function AddEmployee() {
-  const { loading, registerUser } = useRegisterStore()
+  const {
+    register: { loading },
+    registerUser
+  } = useAuthRedux()
   const [department, setDepartment] = useState([])
-  const [joined, setJoined] = useState('')
   const [employee, setEmployee] = useState([])
+  const [hasManager, setHasManager] = useState(false)
+  const [joined, setJoined] = useState('')
   const [selectedTimezone, setSelectedTimezone] = useState({})
   const [selectedOption, setSelectedOption] = useState('')
   const [selectedManager, setSelectedManager] = useState('')
-  const [hasManager, setHasManager] = useState(false)
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const handleSelectChange = (event) => {

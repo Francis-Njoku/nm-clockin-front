@@ -7,35 +7,18 @@ import PageHeader from '../../partials/PageHeader'
 //import CurrentTask from "../../components/Employees/CurrentTask";
 //import ExperienceCard from "../../components/Employees/ExperienceCard";
 import { Modal } from 'react-bootstrap'
-import makeAPICall from '../../utils/apiUtils'
+import makeAPICall from '../../utils/api'
 import { message } from 'antd'
 import { capitalizeFirstLetterOfEachWord } from '../../utils/helperFunctions'
+import useAuthRedux from 'global/store/auth/useAuthRedux'
 
 export default function EmployeeProfile() {
   const [ismodal, setIsmodal] = useState(false)
   const [modalData, setModalData] = useState('')
-  const [profile, setProfile] = useState(0)
 
-  function getUserProfile() {
-    //setLoading(true);
-    return makeAPICall({
-      path: '/auth/profile',
-      method: 'GET',
-      params: null
-    })
-      .then((res) => {
-        setProfile(res)
-        console.log(res)
-      })
-      .catch((err) => {
-        //setLoading(false);
-        message.error(err.message, 5)
-      })
-  }
-
-  useEffect(() => {
-    getUserProfile()
-  }, [])
+  const {
+    profile: { data: profile }
+  } = useAuthRedux()
 
   return (
     <div className="container-xxl">

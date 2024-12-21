@@ -8,6 +8,8 @@ const menu = [
     isCategory: false,
     isApp: false,
     isToggled: false,
+    isManager: false,
+    isAdmin: false,
     children: [
       {
         name: 'User Dashboard',
@@ -17,6 +19,8 @@ const menu = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -27,6 +31,8 @@ const menu = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       }
     ]
@@ -40,6 +46,8 @@ const menu = [
     isCategory: false,
     isApp: false,
     isToggled: false,
+    isManager: false,
+    isAdmin: false,
     children: [
       {
         name: 'Attendance',
@@ -49,10 +57,88 @@ const menu = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
+        children: []
+      }
+    ]
+  },
+  {
+    name: 'Leave',
+    routerLink: ['my-leave-requests'],
+    identifier: 'Leave',
+    iconClass: 'icofont-travelling',
+    breadcrumbMessage: '',
+    isCategory: false,
+    isApp: false,
+    isToggled: false,
+    isManager: false,
+    isAdmin: false,
+    children: [
+      {
+        name: 'My Leave Requests',
+        routerLink: ['my-leave-requests'],
+        identifier: 'My Leave Requests',
+        iconClass: '',
+        breadcrumbMessage: '',
+        isCategory: false,
+        isApp: false,
+        isManager: false,
+        isAdmin: false,
+        children: []
+      },
+      {
+        name: 'Manage Leave Requests',
+        routerLink: ['manage-leave-requests'],
+        identifier: 'Leave Requests',
+        iconClass: '',
+        breadcrumbMessage: '',
+        isCategory: false,
+        isApp: false,
+        isManager: true,
+        isAdmin: false,
+        children: []
+      },
+      {
+        name: 'Leave Calendar',
+        routerLink: ['leave-calendar'],
+        identifier: 'Leave Calendar',
+        iconClass: '',
+        breadcrumbMessage: '',
+        isCategory: false,
+        isApp: false,
+        isManager: false,
+        isAdmin: true,
         children: []
       }
     ]
   }
+  // {
+  //   name: 'Events',
+  //   routerLink: ['events-calendar'],
+  //   identifier: 'Events',
+  //   iconClass: 'icofont-calendar',
+  //   breadcrumbMessage: '',
+  //   isCategory: false,
+  //   isApp: false,
+  //   isToggled: false,
+  //   isManager: false,
+  //   isAdmin: false,
+  //   children: [
+  //     {
+  //       name: 'Events',
+  //       routerLink: ['events-calendar'],
+  //       identifier: 'Events',
+  //       iconClass: '',
+  //       breadcrumbMessage: '',
+  //       isCategory: false,
+  //       isApp: false,
+  //       isManager: false,
+  //       isAdmin: false,
+  //       children: []
+  //     }
+  //   ]
+  // }
 ]
 
 const menu2 = [
@@ -65,6 +151,8 @@ const menu2 = [
     isCategory: false,
     isApp: false,
     isToggled: true,
+    isManager: false,
+    isAdmin: false,
     children: []
   },
   {
@@ -76,6 +164,8 @@ const menu2 = [
     isCategory: false,
     isApp: false,
     isToggled: false,
+    isManager: false,
+    isAdmin: false,
     children: [
       {
         name: 'Sign in',
@@ -85,6 +175,8 @@ const menu2 = [
         breadcrumbMessage: 'Welcome to Analytics Dashboard.',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -95,6 +187,8 @@ const menu2 = [
         breadcrumbMessage: 'Welcome to Analytics Dashboard.',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -105,6 +199,8 @@ const menu2 = [
         breadcrumbMessage: 'Welcome to Analytics Dashboard.',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -115,6 +211,8 @@ const menu2 = [
         breadcrumbMessage: 'Welcome to Analytics Dashboard.',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -125,6 +223,8 @@ const menu2 = [
         breadcrumbMessage: 'Welcome to Analytics Dashboard.',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       }
     ]
@@ -138,6 +238,8 @@ const menu2 = [
     isCategory: false,
     isApp: false,
     isToggled: false,
+    isManager: false,
+    isAdmin: false,
     children: []
   },
   {
@@ -149,6 +251,8 @@ const menu2 = [
     isCategory: false,
     isApp: false,
     isToggled: false,
+    isManager: false,
+    isAdmin: false,
     children: [
       {
         name: 'Alerts',
@@ -158,6 +262,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -168,6 +274,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -178,6 +286,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -188,6 +298,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -198,6 +310,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -208,6 +322,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -218,6 +334,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -228,6 +346,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -238,6 +358,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -248,6 +370,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -258,6 +382,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -268,6 +394,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -278,6 +406,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -288,6 +418,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -298,6 +430,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -308,6 +442,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -318,6 +454,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       },
       {
@@ -328,6 +466,8 @@ const menu2 = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
+        isManager: false,
+        isAdmin: false,
         children: []
       }
     ]
@@ -341,6 +481,8 @@ const menu2 = [
     isCategory: false,
     isApp: false,
     isToggled: false,
+    isManager: false,
+    isAdmin: false,
     children: []
   },
   {
@@ -352,6 +494,8 @@ const menu2 = [
     isCategory: false,
     isApp: false,
     isToggled: false,
+    isManager: false,
+    isAdmin: false,
     children: []
   }
 ]

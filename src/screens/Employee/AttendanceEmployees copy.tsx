@@ -1,11 +1,8 @@
 import React from 'react'
 import DataTable from 'react-data-table-component'
 import PageHeader from '../../partials/PageHeader'
-import { TimeAttandanceData } from '../../components/Data/AppData'
-import {
-  EmployessYearlyStatusData,
-  TodayTimeUtilisationData
-} from '../../components/Data/ChartData'
+import { TimeAttandanceData } from '../../data/AppData'
+import { EmployessYearlyStatusData, TodayTimeUtilisationData } from '../../data/ChartData'
 import RecentActivityCard from '../../components/Employees/RecentActivityCard'
 import StatisticsCard from '../../components/Employees/StatisticsCard'
 import GeneralChartCard from '../../components/Employees/TodayTimeUtilisation'

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import DataTable from 'react-data-table-component'
 import AddNewUserModal from '../../partials/AddNewUserModal'
 import PageHeader from '../../partials/PageHeader'
-import { LeadersListData } from '../../components/Data/AppData'
+import { LeadersListData } from '../../data/AppData'
 
 function Leaders() {
   const [isAddUserModal, setIsAddUserModal] = useState(false)

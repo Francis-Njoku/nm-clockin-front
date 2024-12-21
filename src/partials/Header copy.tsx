@@ -19,7 +19,7 @@ import AddNewUserModal from './AddNewUserModal'
 import { useNavigate, useLocation } from 'react-router-dom'
 //import { useTimezoneSelect, allTimezones } from "react-timezone-select";
 import CityTime from './CityTime'
-import makeAPICall from '../utils/apiUtils'
+import makeAPICall from '../utils/api'
 import {
   getCurrentAttendanceStatusSelector,
   GetAttendanceStatus
@@ -55,7 +55,6 @@ export default function Header() {
     dispatch(GetAttendanceStatus({}));
   }, [dispatch]);
 
-  console.log(attendance, "test");
   */
   useEffect(() => {
     const summary = () => {
@@ -65,7 +64,6 @@ export default function Header() {
       })
         .then((res) => {
           setSummary(res)
-          console.log(res)
         })
         .catch((err) => {
           console.log(err)
@@ -84,7 +82,6 @@ export default function Header() {
     })
       .then((res) => {
         setProfile(res)
-        //console.log(res);
       })
       .catch((err) => {
         setLoading(false)
@@ -305,13 +302,17 @@ export default function Header() {
                     <Link to="members" className="list-group-item list-group-item-action border-0">
                       <i className="icofont-ui-user-group fs-6 me-3"></i>members
                     </Link>
-                    <Link to="sign-in" className="list-group-item list-group-item-action border-0">
+                    <Link
+                      to="auth/sign-in"
+                      className="list-group-item list-group-item-action border-0">
                       <i className="icofont-logout fs-6 me-3"></i>Signout
                     </Link>
                     <div>
                       <hr className="dropdown-divider border-dark" />
                     </div>
-                    <Link to="sign-up" className="list-group-item list-group-item-action border-0">
+                    <Link
+                      to="auth/sign-up"
+                      className="list-group-item list-group-item-action border-0">
                       <i className="icofont-contact-add fs-5 me-3"></i>Add personal account
                     </Link>
                   </div>

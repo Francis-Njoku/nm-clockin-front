@@ -9,11 +9,7 @@ import ProjectCredentials from '../../components/Dashboard/ProjectCredentials'
 import TaskCard from '../../components/Dashboard/TaskCard'
 import TopPerformers from '../../components/Dashboard/TopPerformers'
 import UpcommingInterviews1 from '../../components/Dashboard/UpcommingInterviews1'
-import {
-  BugImageAttechedData,
-  OurClientsData,
-  ProjectCardData
-} from '../../components/Data/AppData'
+import { BugImageAttechedData, OurClientsData, ProjectCardData } from '../../data/AppData'
 import AttechedCard from '../../components/Ticket/AttechedCard'
 import StatusCard from '../../components/Ticket/StatusCard'
 

@@ -1,11 +1,9 @@
-import { logout } from './authUtils.js'
+import { logout } from './auth.js'
 
 export const AUTH_TOKEN = '__API_TOKEN__'
 
 export const getAuthToken = () => window.localStorage.getItem(AUTH_TOKEN)
-//require('dotenv').config();
 const baseURL = import.meta.env.VITE_API_URL
-//console.log(baseURL);
 
 const makeAPICall = async (
   { path, method = 'POST', payload = null, params = null },
@@ -17,9 +15,9 @@ const makeAPICall = async (
     Accept: 'application/json, */*',
     'Content-type': 'application/json'
   }
-  //console.log("deborah");
-  //console.log(baseURL);
-  //console.log('API Endpoint:', import.meta.env.VITE_API_URL);
+  // console.log("deborah");
+  // console.log(baseURL)
+  // console.log('API Endpoint:', import.meta.env.VITE_API_URL)
   if (token) headers.Authorization = `Bearer ${token}`
 
   const configs = {
@@ -27,16 +25,16 @@ const makeAPICall = async (
     headers,
     ...customConfigs
   }
-  //console.log("deborah2");
+  // console.log("deborah2");
 
-  // return console.log(configs);
+  // console.log(configs, payload)
 
   if (payload) configs.body = JSON.stringify(payload)
 
   const url = new window.URL(`${baseURL}${path}`)
 
-  //console.log(url);
-  //console.log("deborah3");
+  // console.log(url)
+  // console.log("deborah3");
 
   const buildParams = (data) => {
     return new window.URLSearchParams(
@@ -52,7 +50,7 @@ const makeAPICall = async (
     .fetch(url, configs)
     .then(async (response) => {
       const data = await response.json()
-      //console.log(data, "test");
+      // console.log(data, "test");
       if (!response.ok) {
         let errorMessage
         if (response.status === 401) {

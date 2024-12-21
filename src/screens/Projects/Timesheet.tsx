@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
 import DataTable from 'react-data-table-component'
 import PageHeader from '../../partials/PageHeader'
-import { TimesheetListData } from '../../components/Data/AppData'
+import { TimesheetListData } from '../../data/AppData'
 
 function Timesheet() {
   const [isModal, setIsModal] = useState(false)

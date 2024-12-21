@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import DataTable from 'react-data-table-component'
 import { Modal } from 'react-bootstrap'
 import PageHeader from '../../partials/PageHeader'
-import { TicketsViewData } from '../../components/Data/AppData'
+import { TicketsViewData } from '../../data/AppData'
 
 function TicketsView() {
   const [isModal, setIsModal] = useState(false)

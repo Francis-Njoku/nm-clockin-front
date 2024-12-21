@@ -3,7 +3,7 @@ import { Modal, Nav, Tab } from 'react-bootstrap'
 import CurrentClientProject from '../../components/Clients/CurrentClientProject'
 import AddNewUserModal from '../../partials/AddNewUserModal'
 import PageHeader from '../../partials/PageHeader'
-import { ProjectCardData } from '../../components/Data/AppData'
+import { ProjectCardData } from '../../data/AppData'
 
 function Projects(props) {
   const [isModal, setIsModal] = useState(false)

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import GoogleImg from '../../assets/images/verify.svg'
-import makeAPICall from '../../utils/apiUtils'
+import makeAPICall from '../../utils/api'
 import { message } from 'antd'
 import { useNavigate } from 'react-router-dom'
 
@@ -74,7 +74,7 @@ export default function StepAuthentication() {
         .then((res) => {
           setIsLoading(false)
           message.success(res.message)
-          navigate('/sign-in')
+          navigate('/auth/sign-in')
         })
         .catch((err) => {
           setIsLoading(false)

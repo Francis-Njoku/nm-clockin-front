@@ -1,6 +1,6 @@
 import React from 'react'
 import PageHeader from '../../partials/PageHeader'
-import { BugFileAttechedData, BugImageAttechedData } from '../../components/Data/AppData'
+import { BugFileAttechedData, BugImageAttechedData } from '../../data/AppData'
 import AttechedCard from '../../components/Ticket/AttechedCard'
 import InternetNotWorking from '../../components/Ticket/InternetNotWorking'
 import StatusCard from '../../components/Ticket/StatusCard'

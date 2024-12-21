@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import useLoginStore from '../../store/login/useLoginStore'
+import useLoginStore from '../../store/auth/useAuthRedux'
 
 // @ts-expect-error img
 import GoogleImg from '../../assets/images/google.svg'

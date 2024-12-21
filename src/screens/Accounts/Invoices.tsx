@@ -1,7 +1,7 @@
 import React from 'react'
 import { Tab } from 'react-bootstrap'
 import PageHeader from '../../partials/PageHeader'
-import { InvoiceData } from '../../components/Data/DashboardData'
+import { InvoiceData } from '../../data/DashboardData'
 import EmailInvoice from '../../components/Invoices/EmailInvoice'
 import InvoiceList from '../../components/Invoices/InvoiceList'
 import SampleInvoice from '../../components/Invoices/SampleInvoice'

@@ -2,41 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-// Bootstrap v5.0.0-beta3
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
 
+  .collapse-list:not(.show) {
+    display: none;
+  }
+
+  details summary::after {
+    transition: transform 0.25s;
+  }
+
+  details[open] summary {
+    margin-bottom: 1rem;
+  }
+
+  details[open] summary::after {
+    top: -0.15rem;
+    transform: rotate(180deg);
+  }
+}
+
+// Bootstrap v5.0.0-beta3
+@import '../../../node_modules/bootstrap/scss/bootstrap';
 
 // Global
-@import "../scss/global/fonts"; 
-@import "../scss/global/themes";
-@import "../scss/global/variables";
-@import "../scss/global/mixins";
-@import "../scss/global/general";
-@import "../scss/global/rtl-mode";
-
+@import '../scss/global/fonts';
+@import '../scss/global/themes';
+@import '../scss/global/variables';
+@import '../scss/global/mixins';
+@import '../scss/global/general';
+@import '../scss/global/rtl-mode';
 
 // Custom Bootstrap Components
-@import "../scss/bootstrap/custom";
+@import '../scss/bootstrap/custom';
 
 // Generic
-@import "../scss/generic/helpers";
-@import "../scss/generic/animate";
+@import '../scss/generic/helpers';
+@import '../scss/generic/animate';
 
 // Skeleton
-@import "../scss/skeleton/mytask-layout";
+@import '../scss/skeleton/mytask-layout';
 
 // Plugin scss
-@import "../scss/plugin/calendar";
-@import "../scss/plugin/chat";
-@import "../scss/plugin/timeline";
-@import "../scss/plugin/taskbord";
-
+@import '../scss/plugin/calendar';
+@import '../scss/plugin/chat';
+@import '../scss/plugin/timeline';
+@import '../scss/plugin/taskbord';
 
 // Application widgets
-@import "../scss/widgets/card";
-
-@layer base {
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-    @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
-  }
-  
+@import '../scss/widgets/card';
