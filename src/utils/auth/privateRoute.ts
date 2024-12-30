@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-import { isLogin } from 'global/utils/auth'
+import { isLogin } from './'
 
 function PrivateRoute({ children }) {
   const navigate = useNavigate()
@@ -8,8 +8,10 @@ function PrivateRoute({ children }) {
   const handleRedirect = () => {
     navigate('/auth/sign-in', { replace: true })
 
-    // window.location.replace('/auth/sign-in')
+    window.location.replace('/auth/sign-in')
   }
+
+  console.log('you must be looged in to access this page')
 
   return isLogin() ? children : handleRedirect()
 }

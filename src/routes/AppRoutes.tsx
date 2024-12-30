@@ -1,7 +1,5 @@
 import React from 'react'
 
-import AdminRoute from './auth/adminRoute'
-import ManagerRoute from './auth/managerRoute'
 import { Routes as ReactRoutes, Route } from 'react-router-dom'
 
 import UserDashboard from '../__template/pages/Dashboard/UserDashboard'
@@ -10,6 +8,8 @@ import EmployeeLeaveRequests from '../screens/Employee/EmployeeLeaveRequests'
 import EmployeeProfile from '../screens/Employee/EmployeeProfile'
 import LeaveCalendar from '../screens/Employee/LeaveCalendar'
 import ManageLeaveRequests from '../screens/Employee/ManageLeaveRequests'
+import AdminRoute from '../utils/auth/adminRoute'
+import ManagerRoute from '../utils/auth/managerRoute'
 
 export default function AppRoutes() {
   return (

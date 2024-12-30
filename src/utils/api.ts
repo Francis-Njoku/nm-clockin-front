@@ -1,4 +1,4 @@
-import { logout } from './auth.js'
+import { logout } from './auth'
 
 export const AUTH_TOKEN = '__API_TOKEN__'
 

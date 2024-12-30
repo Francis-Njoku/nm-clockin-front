@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
-import PageHeader from 'global/components/__Library/PageHeader'
-
 //import AdvancedValidationForm from "../../components/Pages/AdvancedValidationForm";
 //import BasicForm from "../../components/Pages/BasicForm";
 //import BasicValidationForm from "../../components/Pages/BasicValidationForm";
-import AddEmployee from '../Pages/AddEmployee'
+import AddEmployee from '../../__template/pages/Pages/AddEmployee'
+
+import PageHeader from 'global/components/__Library/PageHeader'
 
 export default function AdminCreateUser() {
   return (

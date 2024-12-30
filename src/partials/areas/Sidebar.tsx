@@ -13,7 +13,7 @@ import NMLogo from 'global/assets/images/NMLogo.png'
 export default function Sidebar({ activekey }) {
   const navigate = useNavigate()
   const {
-    auth: { data: profile }
+    auth: { data: auth }
   } = useAuthRedux()
 
   const [isSidebarMini, setIsSidebarMini] = useState(false)
@@ -154,10 +154,10 @@ export default function Sidebar({ activekey }) {
         </a>
         <ul className="menu-list flex-grow-1 mt-3">
           {menuData.map((item, i) => {
-            if (item.isManager && !profile.isManager) {
+            if (item.isManager && !auth.isManager) {
               return null
             }
-            if (item.isAdmin && !profile.isAdmin) {
+            if (item.isAdmin && !auth.isAdmin) {
               return null
             }
 
@@ -206,11 +206,11 @@ export default function Sidebar({ activekey }) {
                 {item.children.length > 0 ? (
                   <ul className="sub-menu has-children [&:not(.show)]:hidden" id={'menu-Pages' + i}>
                     {item.children.map((data, ind) => {
-                      if (data.isManager && !profile.isManager) {
+                      if (data.isManager && !auth.isManager) {
                         return null
                       }
 
-                      if (data.isAdmin && !profile.isAdmin) {
+                      if (data.isAdmin && !auth.isAdmin) {
                         return null
                       }
                       if (data.children.length > 0) {

@@ -2,7 +2,7 @@ import 'core-js/stable/atob'
 import { createBrowserHistory } from 'history'
 import { jwtDecode } from 'jwt-decode'
 
-import { AUTH_TOKEN } from './constants'
+import { AUTH_TOKEN } from '../constants'
 
 const history = createBrowserHistory()
 
