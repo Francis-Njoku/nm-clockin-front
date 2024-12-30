@@ -95,7 +95,7 @@ const menu = [
         breadcrumbMessage: '',
         isCategory: false,
         isApp: false,
-        isManager: true,
+        isManager: false,
         isAdmin: false,
         children: []
       },

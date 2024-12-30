@@ -6,6 +6,7 @@ import UserDashboard from '../__template/pages/Dashboard/UserDashboard'
 import AttendanceEmployees from '../screens/Employee/AttendanceEmployees'
 import EmployeeLeaveRequests from '../screens/Employee/EmployeeLeaveRequests'
 import EmployeeProfile from '../screens/Employee/EmployeeProfile'
+import ManageLeaveRequests from '../screens/Employee/ManageLeaveRequests'
 
 export default function AppRoutes() {
   return (
@@ -15,6 +16,7 @@ export default function AppRoutes() {
       <Route path={`/attendance-summary`} element={<UserDashboard />} />
       <Route path={`/attendance-employees`} element={<AttendanceEmployees />} />
       <Route path={`/my-leave-requests`} element={<EmployeeLeaveRequests />} />
+      <Route path={`/manage-leave-requests`} element={<ManageLeaveRequests />} />
     </ReactRoutes>
   )
 }
