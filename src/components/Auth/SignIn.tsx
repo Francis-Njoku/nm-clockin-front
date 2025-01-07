@@ -38,9 +38,9 @@ export default function SignIn() {
         <form className="row g-1 p-md-4 p-3">
           <div className="col-12 mb-lg-5 mb-1 text-center">
             <h1>Sign in</h1>
-            <span>Free access to our dashboard.</span>
+            {/* <span>Free access to our dashboard.</span> */}
           </div>
-          <div className="col-12 mb-4 text-center">
+          {/* <div className="col-12 mb-4 text-center">
             <a className="btn btn-lg btn-outline-secondary btn-block" href="#!">
               <span className="d-flex justify-content-center align-items-center">
                 <img className="avatar xs me-2" src={GoogleImg} alt="Imag Description" />
@@ -48,7 +48,7 @@ export default function SignIn() {
               </span>
             </a>
             <span className="dividers mt-4 text-muted">OR</span>
-          </div>
+          </div> */}
           <div className="col-12">
             <div className="mb-2">
               <label className="form-label">Email address</label>

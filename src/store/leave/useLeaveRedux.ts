@@ -66,7 +66,7 @@ function useLeaveRedux() {
         dispatch(setGetmyteamleavesState({ ...myTeamLeaveRequests, loading: true }))
         const fetchData = () => {
           return makeAPICall({
-            path: `/leave/manager?`,
+            path: `/leave/manager/`,
             method: 'GET'
           })
             .then((res) => {

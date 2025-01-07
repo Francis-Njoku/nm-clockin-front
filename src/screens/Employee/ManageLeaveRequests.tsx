@@ -44,6 +44,11 @@ export default function ManageLeaveRequest() {
       )
     },
     {
+      name: 'REASON',
+      selector: (row) => row.reason,
+      sortable: true
+    },
+    {
       name: 'LEAVE TYPE',
       selector: (row) => row.leave_type,
       sortable: true
@@ -56,11 +61,6 @@ export default function ManageLeaveRequest() {
     {
       name: 'TO',
       selector: (row) => row.end,
-      sortable: true
-    },
-    {
-      name: 'REASON',
-      selector: (row) => row.reason,
       sortable: true
     },
     {
