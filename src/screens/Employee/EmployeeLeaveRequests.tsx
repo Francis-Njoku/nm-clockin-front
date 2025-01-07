@@ -32,7 +32,7 @@ function LeaveRequest() {
   const columns = [
     {
       name: 'REASON',
-      selector: (row) => row.reason,
+      selector: (row) => row.name,
       sortable: true
     },
     {

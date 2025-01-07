@@ -45,7 +45,7 @@ export default function ManageLeaveRequest() {
     },
     {
       name: 'REASON',
-      selector: (row) => row.reason,
+      selector: (row) => row.name,
       sortable: true
     },
     {
