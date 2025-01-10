@@ -42,18 +42,19 @@ function useLeaveRedux() {
         }
         fetchData()
       }, []),
-    getMyLeaves: (setPageCount, pageCount, refresh, query?) =>
+    getMyLeaves: (refresh, setPageCount?, pageCount?, query?) =>
       useEffect(() => {
         dispatch(setGetmyleavesState({ ...myLeaveRequests, loading: true }))
 
         const fetchData = () => {
           return makeAPICall({
-            path: `/leave/user?`,
+            path: `/leave/user/`,
             method: 'GET'
           })
             .then((res) => {
+              console.log(res.data)
+
               dispatch(setGetmyleavesState({ ...myLeaveRequests, loading: false, data: res.data }))
-              setPageCount(Math.ceil(res.data.length / pageCount))
             })
             .catch((err) => {
               console.log(err)
@@ -61,7 +62,7 @@ function useLeaveRedux() {
         }
         fetchData()
       }, [refresh]),
-    getMyTeamLeaves: (setPageCount, pageCount, refresh, query?) =>
+    getMyTeamLeaves: (refresh, setPageCount?, pageCount?, query?) =>
       useEffect(() => {
         dispatch(setGetmyteamleavesState({ ...myTeamLeaveRequests, loading: true }))
         const fetchData = () => {
@@ -70,10 +71,10 @@ function useLeaveRedux() {
             method: 'GET'
           })
             .then((res) => {
+              console.log(res.data)
               dispatch(
                 setGetmyteamleavesState({ ...myTeamLeaveRequests, loading: false, data: res.data })
               )
-              setPageCount(Math.ceil(res.data.length / pageCount))
             })
             .catch((err) => {
               console.log(err)

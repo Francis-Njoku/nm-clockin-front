@@ -17,7 +17,7 @@ function LeaveRequest() {
   const [isCommentsModal, setIsCommentsModal] = useState(false)
   const [deleteId, setDeleteId] = useState(null)
   const [refresh, setRefresh] = useState(false)
-  const [pageCount, setPageCount] = useState(10)
+  // const [pageCount, setPageCount] = useState(10)
 
   const {
     getMyLeaves,
@@ -26,7 +26,7 @@ function LeaveRequest() {
   } = useLeaveRedux()
   const { getProfile } = useAuthRedux()
   getProfile()
-  getMyLeaves(setPageCount, pageCount, refresh)
+  getMyLeaves(refresh)
 
   const rows = myLeaveRequests || []
   const columns = [

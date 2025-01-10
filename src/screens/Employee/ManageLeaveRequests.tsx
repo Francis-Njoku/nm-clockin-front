@@ -17,7 +17,7 @@ export default function ManageLeaveRequest() {
   const [isCommentsModal, setIsCommentsModal] = useState(false)
   const [deleteId, setDeleteId] = useState(null)
   const [refresh, setRefresh] = useState(false)
-  const [pageCount, setPageCount] = useState(10)
+  // const [pageCount, setPageCount] = useState(10)
 
   const {
     getMyTeamLeaves,
@@ -27,7 +27,7 @@ export default function ManageLeaveRequest() {
   } = useLeaveRedux()
   const { getProfile } = useAuthRedux()
   getProfile()
-  getMyTeamLeaves(setPageCount, pageCount, refresh)
+  getMyTeamLeaves(refresh)
 
   const columns = [
     {
