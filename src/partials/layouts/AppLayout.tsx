@@ -7,10 +7,10 @@ import Header from '../headers/Header'
 
 import PrivateRoute from 'global/utils/auth/privateRoute'
 
-import AdminRoutes from 'global/routes/AdminRoutes'
-import EmployeeRoutes from 'global/routes/EmployeeRoutes'
-import ManagerRoutes from 'global/routes/ManagerRoutes'
-import TemplateRoutes from 'global/routes/TemplateRoutes'
+import AdminRoutes from 'global/__routes/AdminRoutes'
+import EmployeeRoutes from 'global/__routes/EmployeeRoutes'
+import ManagerRoutes from 'global/__routes/ManagerRoutes'
+import TemplateRoutes from 'global/__routes/TemplateRoutes'
 
 import PageHeader1 from 'global/components/__Library/PageHeader1'
 

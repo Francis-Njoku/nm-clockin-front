@@ -199,6 +199,12 @@ export default function Header() {
                       <i className="icofont-contact-add fs-5 me-3"></i>Add personal account
                     </Link> */}
                     <hr className="dropdown-divider border-dark" />
+
+                    <Link
+                      to="change-password"
+                      className="list-group-item list-group-item-action border-0">
+                      <i className="icofont-ui-password fs-6 me-3"></i>Change Password
+                    </Link>
                     <button
                       onClick={() => logout()}
                       className="list-group-item list-group-item-action border-0">

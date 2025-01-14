@@ -8,10 +8,13 @@ import EmployeeLeaveRequests from '../screens/Employee/EmployeeLeaveRequests'
 import EmployeeProfile from '../screens/Employee/EmployeeProfile'
 import ManageLeaveRequests from '../screens/Employee/ManageLeaveRequests'
 
+import ChangePassword from 'global/components/Auth/ChangePassword'
+
 export default function AppRoutes() {
   return (
     <ReactRoutes>
       <Route path={`/`} element={<UserDashboard />} />
+      <Route path={`/change-password`} element={<ChangePassword />} />
       <Route path={`/members-profile`} element={<EmployeeProfile />} />
       <Route path={`/attendance-summary`} element={<UserDashboard />} />
       <Route path={`/attendance-employees`} element={<AttendanceEmployees />} />

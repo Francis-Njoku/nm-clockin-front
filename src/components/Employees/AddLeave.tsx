@@ -9,9 +9,18 @@ import { useUsersRedux } from 'global/store/users/useUsersRedux'
 import { Modal } from 'react-bootstrap'
 
 function AddLeave({ isModal, setIsModal, refresh, setRefresh }) {
+  const { register, handleSubmit, reset, watch } = useForm({
+    mode: 'onBlur'
+  })
+  const registerOptions = {
+    default: {}
+  }
+
   const [user_recipients, set_User_recipients] = useState<any[]>([])
+  const [searchQuery, setSearchQuery] = useState('')
 
   const { createLeave } = useLeaveRedux()
+
   const {
     users: { data: users },
     getUsers
@@ -23,18 +32,11 @@ function AddLeave({ isModal, setIsModal, refresh, setRefresh }) {
 
   getUsers()
 
-  // console.log(users)
-
   const lineManagers = users?.filter((user) => user?.id !== profile?.id) || []
 
-  // console.log(users, lineManagers)
-
-  const { register, handleSubmit, reset, watch } = useForm({
-    mode: 'onBlur'
-  })
-  const registerOptions = {
-    default: {}
-  }
+  const filteredManagers = lineManagers.filter((manager) =>
+    `${manager.firstName} ${manager.lastName}`.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
   const toggleLang = (option) => {
     if (user_recipients.includes(option)) {
@@ -56,7 +58,6 @@ function AddLeave({ isModal, setIsModal, refresh, setRefresh }) {
       </Modal.Header>
       <form
         onSubmit={handleSubmit((data) => {
-          // console.log({ ...data, user_recipients })
           createLeave(
             { ...data, user_recipients: user_recipients.toString() },
             refresh,
@@ -145,8 +146,15 @@ function AddLeave({ isModal, setIsModal, refresh, setRefresh }) {
                 )}
               </summary>
               <fieldset>
-                <ul className="ml-2 mt-2 p-0">
-                  {lineManagers.map((manager) => (
+                <input
+                  type="text"
+                  placeholder="Search managers..."
+                  className="form-control bg-gray-50 shadow-sm mt-2 mb-4"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <ul className="ml-2 mt-2 p-0 max-h-60 overflow-scroll">
+                  {filteredManagers.map((manager) => (
                     <li key={manager.id} className="rounded-md p-1 hover:bg-gray-300">
                       <label htmlFor={`${manager?.id}`} className="flex flex-row justify-between">
                         {`${manager.firstName} ${manager.lastName}`}
@@ -156,7 +164,8 @@ function AddLeave({ isModal, setIsModal, refresh, setRefresh }) {
                           name={`${manager?.id}`}
                           key={manager?.id}
                           value={manager?.id}
-                          onClick={() => toggleLang(manager?.email)}
+                          checked={user_recipients.includes(manager?.email)}
+                          onChange={() => toggleLang(manager?.email)}
                         />
                       </label>
                     </li>

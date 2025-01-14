@@ -37,6 +37,20 @@ export default function useAuthRedux() {
           dispatch(setLoginState({ ...auth, loading: false, hasErrors: err.message }))
         })
     },
+    changePassword: (data, reset) => {
+      return makeAPICall({
+        path: '/auth/change-password',
+        payload: { email: profile?.data.email, ...data },
+        method: 'POST'
+      })
+        .then(async (res) => {
+          message.success('password changed successfully')
+          reset()
+        })
+        .catch((err) => {
+          message.error(err.message, 5)
+        })
+    },
     logout: () => {
       dispatch(setLoginState({ hasErrors: null, loading: false, data: null }))
       dispatch(setProfileState({ hasErrors: null, loading: false, data: null }))

@@ -1,27 +1,12 @@
-import React, { useEffect, useState } from 'react'
-
-import { message } from 'antd'
-
 import useAuthRedux from 'global/store/auth/useAuthRedux'
 
-import { makeAPICall } from 'global/utils/api'
 import { capitalizeFirstLetterOfEachWord } from 'global/utils/helperFunctions'
-
-//import CurrentClientProject from "../../components/Clients/CurrentClientProject";
-//import { clentProfileData, employeeInformationDetails } from "../../components/Data/AppData";
-//import PersonalInformations from "../../components/Employees/PersonalInformations";
-//import CurrentTask from "../../components/Employees/CurrentTask";
-//import ExperienceCard from "../../components/Employees/ExperienceCard";
-import { Modal } from 'react-bootstrap'
-
-import ClientProfileCard from 'global/__template/components/Clients/ClientProfileCard'
 
 import PageHeader from 'global/components/__Library/PageHeader'
 
-export default function EmployeeProfile() {
-  const [ismodal, setIsmodal] = useState(false)
-  const [modalData, setModalData] = useState('')
+import profileImg from 'global/assets/images/lg/avatar3.jpg'
 
+export default function EmployeeProfile() {
   const {
     profile: { data: profile }
   } = useAuthRedux()
@@ -31,129 +16,69 @@ export default function EmployeeProfile() {
       <PageHeader headerTitle="Employee Profile" />
       <div className="row g-3">
         <div className="col-xl-8 col-lg-12 col-md-12">
-          <ClientProfileCard
-            designation={capitalizeFirstLetterOfEachWord(profile?.data?.department?.name)}
-            details={`Employee Id : ${profile?.data?.name}`}
-          />
-          <h6 className="fw-bold mb-3 py-3">Current Work Project</h6>
-          {/*
-                    <div className="teachercourse-list mb-3">
-                        <div className="row g-3 gy-5 pt-3 row-deck">
-                            {
-                                clentProfileData.map((d, i) => {
-                                    return <div key={"ljsdhl" + i} className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                                        <CurrentClientProject teamImage={d.teamImage} logo={d.logo} logoBg={d.logoBg} title={d.title} sl={d.sl} />
-                                    </div>
-                                })
-                            }
-                        </div>
+          <div className="card teacher-card mb-3">
+            <div className="card-body d-flex teacher-fulldeatil">
+              <div className="profile-teacher pe-xl-4 pe-md-2 pe-sm-4 w220 pe-4 text-center">
+                <a href="#!">
+                  <img
+                    src={profileImg}
+                    alt=""
+                    className="avatar xl rounded-circle img-thumbnail shadow-sm"
+                  />
+                </a>
+                <div className="about-info d-flex align-items-center justify-content-center flex-column mt-3">
+                  <h6 className="fw-bold d-block fs-6 mb-0">
+                    {profile?.role ? profile?.role : 'Staff'}
+                  </h6>
+                  <span className="small text-muted">{`Employee Id : ${profile?.name}`}</span>
+                </div>
+              </div>
+              <div className="teacher-info border-start ps-xl-4 ps-md-4 ps-sm-4 w-100 ps-4">
+                <h6 className="fw-bold d-block fs-6 mb-0 mt-2">
+                  {capitalizeFirstLetterOfEachWord(profile?.group?.name)}
+                </h6>
+                <span className="fw-bold small-11 mb-0 mt-1 py-1 text-muted">
+                  {capitalizeFirstLetterOfEachWord(profile?.firstName)}{' '}
+                  {capitalizeFirstLetterOfEachWord(profile?.lastName)}
+                </span>
+                {/*<p className="mt-2 small">The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy</p> */}
+                <div className="row g-2 pt-2">
+                  <div className="col-xl-5">
+                    <div className="d-flex align-items-center">
+                      <i className="icofont-ui-touch-phone"></i>
+                      <span className="small ms-2">{profile?.phone} </span>
                     </div>
-                    <div className="row g-3">
-                        {
-                            employeeInformationDetails.map((d, i) => {
-                                return <div key={"lkshnd" + i} className="col-xxl-6 col-xl-6 col-lg-6 col-md-12">
-                                    <PersonalInformations information={d.information} title={d.title}
-                                        onClickEdit={() => { setIsmodal(true); setModalData(d); }}
-                                    />
-                                </div>
-                            })
-                        }
-                    </div>*/}
-        </div>
-        <div className="col-xl-4 col-lg-12 col-md-12">
-          {/*<CurrentTask />
-                    <ExperienceCard /> */}
+                  </div>
+                  <div className="col-xl-5">
+                    <div className="d-flex align-items-center">
+                      <i className="icofont-email"></i>
+                      <span className="small ms-2">{profile?.email}</span>
+                    </div>
+                  </div>
+                  <div className="col-xl-5">
+                    <div className="d-flex align-items-center">
+                      <i className="icofont-birthday-cake"></i>
+                      <span className="small ms-2">{profile?.joined}</span>
+                    </div>
+                  </div>
+                  <div className="col-xl-5">
+                    <div className="d-flex align-items-center">
+                      <i className="icofont-address-book"></i>
+                      <span className="small ms-2">
+                        {profile?.group.map((groupItem, index) => (
+                          <div key={index}>
+                            {capitalizeFirstLetterOfEachWord(groupItem.group.name)}
+                          </div>
+                        ))}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <Modal
-        centered
-        show={ismodal}
-        onHide={() => {
-          setIsmodal(false)
-        }}>
-        <Modal.Header closeButton>
-          <Modal.Title className="fw-bold">{modalData.title}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="deadline-form">
-            <form>
-              <div className="row g-3 mb-3">
-                {modalData
-                  ? modalData.information.map((d, i) => {
-                      if (i < 2) {
-                        return (
-                          <div key={'kjsdfhj' + i} className="col">
-                            <label className="form-label">{d.title}</label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="exampleFormControlInput877"
-                              value={d.value}
-                            />
-                          </div>
-                        )
-                      }
-                      return null
-                    })
-                  : null}
-              </div>
-              <div className="row g-3 mb-3">
-                {modalData
-                  ? modalData.information.map((d, i) => {
-                      if (i > 1 && i < 4) {
-                        return (
-                          <div key={'kjsdfhj' + i} className="col">
-                            <label className="form-label">{d.title}</label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="exampleFormControlInput877"
-                              value={d.value}
-                            />
-                          </div>
-                        )
-                      }
-                      return null
-                    })
-                  : null}
-              </div>
-              <div className="row g-3 mb-3">
-                {modalData
-                  ? modalData.information.map((d, i) => {
-                      if (i > 3) {
-                        return (
-                          <div key={'kjsdfhj' + i} className="col">
-                            <label className="form-label">{d.title}</label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="exampleFormControlInput877"
-                              value={d.value}
-                            />
-                          </div>
-                        )
-                      }
-                      return null
-                    })
-                  : null}
-              </div>
-            </form>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={() => {
-              setIsmodal(false)
-            }}>
-            Done
-          </button>
-          <button type="button" className="btn btn-primary">
-            Sent
-          </button>
-        </Modal.Footer>
-      </Modal>
     </div>
   )
 }
